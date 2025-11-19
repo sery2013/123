@@ -1689,3 +1689,18 @@ tr.active-row {
 /* body, .container, .tab-content { */
 /*     background: #222222 !important; */ /* Темно-серый фон */
 /* } */
+
+
+/* === СДЕЛАТЬ ССЫЛКИ СВЕТЛО-СЕРЫМИ В БЛОКЕ ПРИВЕТСТВИЯ И В БЛОКЕ РАЗРАБОТЧИКА === */
+.welcome-block a,
+.team-box a {
+    color: #cccccc !important; /* Светло-серый цвет */
+    text-decoration: underline;
+}
+
+/* Опционально: изменить цвет при наведении */
+.welcome-block a:hover,
+.team-box a:hover {
+    color: #ffffff !important; /* Белый при наведении */
+}
+
