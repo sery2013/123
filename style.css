@@ -1472,53 +1472,53 @@ a:link, a:visited {
 
 /* === 2. СДЕЛАТЬ ВКЛАДКИ "LEADERBOARD" И "ANALYTICS" ТЕМНО-СЕРЫМИ (уже было, обновляем/уточняем) === */
 .tab-btn {
-    background: #1a1a1a !important; /* Темно-серый фон */
+    background: #222222 !important; /* Темно-серый фон */
     color: #ffffff !important;     /* Белый текст */
     border: 1px solid #333 !important; /* Тонкая обводка */
     border-radius: 5% !important;  /* Сохраняем скругление */
 }
 
 .tab-btn:hover {
-    background: #2d2d2d !important; /* Чуть светлее при наведении */
+    background: #333333 !important; /* Чуть светлее при наведении */
     color: #ffffff !important;     /* Белый текст при наведении */
 }
 
 .tab-btn.active {
-    background: #0f0f0f !important; /* Почти черный для активной вкладки */
+    background: #1a1a1a !important; /* Более тёмный серый для активной вкладки */
     color: #ffffff !important;     /* Белый текст */
     border-color: #666 !important; /* Более заметная обводка */
 }
 
-/* === 3. СДЕЛАТЬ ФОН БЛОКА ПРИВЕТСТВИЯ ЧЁРНЫМ === */
+/* === 3. СДЕЛАТЬ ФОН БЛОКА ПРИВЕТСТВИЯ ТЕМНО-СЕРЫМ === */
 .welcome-block {
-    background-color: #000000 !important; /* Чёрный фон */
+    background-color: #222222 !important; /* Темно-серый фон */
     /* border: 1px solid #2F4F4F !important; */ /* Опционально: изменить цвет рамки */
     color: white !important; /* Убедимся, что текст белый */
 }
 
-/* === 4. СДЕЛАТЬ ФОН ОСТАЛЬНЫХ ЭЛЕМЕНТОВ ЧЁРНЫМИ/ТЕМНО-СЕРЫМИ === */
+/* === 4. СДЕЛАТЬ ФОН ОСТАЛЬНЫХ ЭЛЕМЕНТОВ ТЕМНО-СЕРЫМИ === */
 /* Блоки статистики */
 .stat-box {
-    background: #0d0d0d !important; /* Очень тёмно-серый фон */
+    background: #222222 !important; /* Темно-серый фон */
     color: white !important; /* Белый текст */
     border: 1px solid #333 !important; /* Лёгкая обводка */
 }
 
 .stat-box:hover {
-    background: #1a1a1a !important; /* Чуть светлее при наведении */
+    background: #333333 !important; /* Чуть светлее при наведении */
     border-color: #555 !important; /* Обводка при наведении */
 }
 
 /* Таблица лидеров */
 table {
-    background: #0d0d0d !important; /* Очень тёмно-серый фон */
+    background: #222222 !important; /* Темно-серый фон */
     color: white !important; /* Белый текст */
     border: 1px solid #333 !important; /* Лёгкая обводка */
 }
 
 /* Заголовки таблицы */
 thead th {
-    background: #1a1a1a !important; /* Тёмно-серый фон заголовка */
+    background: #333333 !important; /* Светло-серый фон заголовка */
     color: white !important; /* Белый текст заголовка */
     border-bottom: 1px solid #333 !important; /* Лёгкая обводка */
 }
@@ -1529,77 +1529,77 @@ tbody td {
 }
 
 tbody tr:hover {
-    background: #1a1a1a !important; /* Фон строки при наведении */
+    background: #333333 !important; /* Фон строки при наведении */
 }
 
 /* Активная строка (при клике на пользователя) */
 tr.active-row {
-    background: #1a1a1a !important; /* Тёмно-серый фон */
+    background: #333333 !important; /* Светло-серый фон */
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2) !important; /* Белая тень */
 }
 
 /* Аккордеон твитов (строка под пользователем) */
 .tweets-row td {
-    background: #1a1a1a !important; /* Тёмно-серый фон */
+    background: #333333 !important; /* Светло-серый фон */
     color: white !important; /* Белый текст */
     border-top: 1px solid #333 !important; /* Лёгкая обводка */
 }
 
 /* Карточка твита внутри аккордеона */
 .tweet-card {
-    background: #0d0d0d !important; /* Очень тёмно-серый фон */
+    background: #222222 !important; /* Темно-серый фон */
     color: white !important; /* Белый текст */
     border: 1px solid #333 !important; /* Лёгкая обводка */
 }
 
 .tweet-card:hover {
-    background: #1a1a1a !important; /* Чуть светлее при наведении */
+    background: #333333 !important; /* Чуть светлее при наведении */
     border-color: #555 !important; /* Обводка при наведении */
 }
 
 /* Блоки аналитики */
 .analytics-block {
-    background: #0d0d0d !important; /* Очень тёмно-серый фон */
+    background: #222222 !important; /* Темно-серый фон */
     color: white !important; /* Белый текст */
     border: 1px solid #333 !important; /* Лёгкая обводка */
 }
 
 /* Блоки статистики в аналитике */
 .analytics-row .stat-box {
-    background: #0d0d0d !important; /* Очень тёмно-серый фон */
+    background: #222222 !important; /* Темно-серый фон */
     color: white !important; /* Белый текст */
     border: 1px solid #333 !important; /* Лёгкая обводка */
 }
 
 .analytics-row .stat-box:hover {
-    background: #1a1a1a !important; /* Чуть светлее при наведении */
+    background: #333333 !important; /* Чуть светлее при наведении */
     border-color: #555 !important; /* Обводка при наведении */
 }
 
 /* Элементы списков в аналитике */
 #top-authors-list li,
 .top-post-item {
-    background: #0d0d0d !important; /* Очень тёмно-серый фон */
+    background: #222222 !important; /* Темно-серый фон */
     color: white !important; /* Белый текст */
     border: 1px solid #333 !important; /* Лёгкая обводка */
 }
 
 #top-authors-list li:hover,
 .top-post-item:hover {
-    background: #1a1a1a !important; /* Чуть светлее при наведении */
+    background: #333333 !important; /* Чуть светлее при наведении */
 }
 
 /* Селекты в аналитике */
 .analytics-block select,
 .analytics-time-filter select {
-    background: #0d0d0d !important; /* Очень тёмно-серый фон */
+    background: #222222 !important; /* Темно-серый фон */
     color: white !important; /* Белый текст */
     border: 1px solid #333 !important; /* Лёгкая обводка */
 }
 
 .analytics-block select:hover,
 .analytics-time-filter select:hover {
-    background: #1a1a1a !important; /* Чуть светлее при наведении */
+    background: #333333 !important; /* Чуть светлее при наведении */
 }
 
 /* Вложенные вкладки аналитики */
@@ -1619,51 +1619,51 @@ tr.active-row {
 
 /* Фильтр по времени и поиска */
 .search-time-filter-container {
-    background: #0d0d0d !important; /* Очень тёмно-серый фон */
+    background: #222222 !important; /* Темно-серый фон */
     border: 1px solid #333 !important; /* Лёгкая обводка */
 }
 
 .search-input {
-    background: #1a1a1a !important; /* Тёмно-серый фон поля */
+    background: #333333 !important; /* Светло-серый фон поля */
     color: white !important; /* Белый текст */
     border: 1px solid #333 !important; /* Лёгкая обводка */
 }
 
 .time-select {
-    background: #1a1a1a !important; /* Тёмно-серый фон селекта */
+    background: #333333 !important; /* Светло-серый фон селекта */
     color: white !important; /* Белый текст */
     border: 1px solid #333 !important; /* Лёгкая обводка */
 }
 
 /* Общие стили для элементов с градиентом */
 .team-box {
-    background: #0d0d0d !important; /* Заменяем градиент на чёрный */
+    background: #222222 !important; /* Заменяем градиент на темно-серый */
     color: white !important; /* Белый текст */
     border: 1px solid #333 !important; /* Лёгкая обводка */
 }
 
 /* Кнопки пагинации */
 .pagination button {
-    background: #0d0d0d !important; /* Очень тёмно-серый фон */
+    background: #222222 !important; /* Темно-серый фон */
     color: white !important; /* Белый текст */
     border: 1px solid #333 !important; /* Лёгкая обводка */
 }
 
 .pagination button:hover {
-    background: #1a1a1a !important; /* Чуть светлее при наведении */
+    background: #333333 !important; /* Чуть светлее при наведении */
 }
 
 /* Кнопки экспорта */
 #export-csv,
 #export-json {
-    background: #0d0d0d !important; /* Очень тёмно-серый фон */
+    background: #222222 !important; /* Темно-серый фон */
     color: white !important; /* Белый текст */
     border: 1px solid #333 !important; /* Лёгкая обводка */
 }
 
 #export-csv:hover,
 #export-json:hover {
-    background: #1a1a1a !important; /* Чуть светлее при наведении */
+    background: #333333 !important; /* Чуть светлее при наведении */
 }
 
 /* Тепловая карта (если цвета не управляются JS) */
@@ -1675,7 +1675,7 @@ tr.active-row {
 
 /* Фильтр по времени (внутри аналитики) */
 .analytics-time-filter {
-    background: #0d0d0d !important; /* Очень тёмно-серый фон */
+    background: #222222 !important; /* Темно-серый фон */
     border: 1px solid #333 !important; /* Лёгкая обводка */
 }
 
@@ -1687,32 +1687,5 @@ tr.active-row {
 /* Общее правило для фона элементов с градиентом (переопределяем) */
 /* Это может повлиять на многое, будьте осторожны */
 /* body, .container, .tab-content { */
-/*     background: #000000 !important; */ /* Чёрный фон */
+/*     background: #222222 !important; */ /* Темно-серый фон */
 /* } */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
