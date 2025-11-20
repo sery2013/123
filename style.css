@@ -14,9 +14,7 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    /* max-width: 600px; /* Ширина как у поста в Twitter */
-    /* margin: 0 auto; /* Центрирование */
-    width: 100%; /* Убедимся, что body занимает всю ширину, а контейнер ограничивает */
+    width: 100%;
 }
 
 /* Обновляем .container, чтобы он соответствовал новой ширине */
@@ -67,8 +65,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Градиентный фон */
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+
+    /* --- ГРАДИЕНТНЫЙ ФОН --- */
+    /* Вариант 1: Серый градиент (по умолчанию) */
+    background: linear-gradient(135deg, #555, #333);
+
+    /* Варианты для выбора (раскомментируйте нужный, закомментировав предыдущий):
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); // Сине-фиолетовый
+    background: linear-gradient(135deg, #6e45e2, #88d3ce); // Фиолетово-бирюзовый
+    background: linear-gradient(45deg, #FF9966, #FF5E62); // Оранжево-красный
+    background: linear-gradient(45deg, #F093FB, #F5576C); // Розово-пурпурный
+    background: linear-gradient(135deg, #4A00E0, #8E2DE2); // Темно-синий
+    */
+
     /* Псевдоэлемент для создания узора сетки */
     z-index: 1; /* Для правильного наложения псевдоэлемента */
 }
@@ -221,7 +230,8 @@ body {
 
 /* Обновляем стили для фона аватара в сгенерированном паспорте */
 .generated-passport .card-background {
-    background: linear-gradient(45deg, #6e45e2, #88d3ce);
+    /* Применяем те же стили, что и для основного .card-background */
+    position: relative;
     width: 180px; /* Устанавливаем фиксированную ширину */
     height: 180px; /* Устанавливаем фиксированную высоту */
     border-radius: 0; /* Убираем скругления */
@@ -232,6 +242,18 @@ body {
     position: relative;
     overflow: hidden;
     z-index: 1;
+
+    /* --- ГРАДИЕНТНЫЙ ФОН (тот же, что и для основного) --- */
+    /* Вариант 1: Серый градиент (по умолчанию) */
+    background: linear-gradient(135deg, #555, #333);
+
+    /* Варианты для выбора (раскомментируйте нужный, закомментировав предыдущий):
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); // Сине-фиолетовый
+    background: linear-gradient(135deg, #6e45e2, #88d3ce); // Фиолетово-бирюзовый
+    background: linear-gradient(45deg, #FF9966, #FF5E62); // Оранжево-красный
+    background: linear-gradient(45deg, #F093FB, #F5576C); // Розово-пурпурный
+    background: linear-gradient(135deg, #4A00E0, #8E2DE2); // Темно-синий
+    */
 }
 
 .generated-passport .card-background::before {
@@ -364,22 +386,3 @@ body {
 .section {
     width: 100%;
 }
-
-/* Удаляем старые стили центрирования, которые дублировались и были некорректны */
-/* 
-body {
-    margin: 0;
-    padding: 20px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    box-sizing: border-box;
-}
-
-#main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
-}
-*/
