@@ -11,25 +11,21 @@
     <div id="editor-section" class="section">
         <div class="container">
             <div class="header-bar">
-                <img src="logo.png" alt="Rise Logo" class="rise-logo">
+                <img src="assets/logo.svg" alt="Rise Logo" class="rise-logo">
             </div>
-
             <div class="passport-card">
                 <!-- Wrapper for avatar with background -->
                 <div class="card-background">
                     <img id="avatar-preview" src="default-avatar.png" alt="Avatar Preview" class="avatar-img">
                 </div>
-
                 <input type="file" id="avatar-upload" accept="image/*" style="display:none;">
                 <button class="upload-btn" onclick="document.getElementById('avatar-upload').click()">Upload Avatar</button>
                 <p id="upload-status" class="status"></p>
-
                 <div class="username-input-wrapper">
                     <label for="username-input">Username:</label>
                     <input type="text" id="username-input" placeholder="Enter your Discord username">
                 </div>
                 <div id="display-username" class="display-username">Your Username</div>
-
                 <!-- Badge Selection -->
                 <div class="badges-selection">
                     <h3>Select Badges:</h3>
@@ -50,16 +46,36 @@
                         <input type="checkbox" value="VIP" class="badge-checkbox"> VIP
                     </label>
                 </div>
-
                 <div class="activity-description">
                     Crafting pixels, pumping vibes, farming retweets 🌀
                 </div>
-
                 <button id="generate-btn" class="generate-btn">Create</button>
             </div>
-        </div>
+            <!-- Новая колонка с выбором стран -->
+            <div id="country-selector">
+                <h3>Select Country:</h3>
+                <label class="country-option">
+                    <input type="checkbox" value="Russia" class="country-checkbox"> <span class="flag-icon">🇷🇺</span> Russia
+                </label>
+                <label class="country-option">
+                    <input type="checkbox" value="United States" class="country-checkbox"> <span class="flag-icon">🇺🇸</span> United States
+                </label>
+                <label class="country-option">
+                    <input type="checkbox" value="China" class="country-checkbox"> <span class="flag-icon">🇨🇳</span> China
+                </label>
+                <label class="country-option">
+                    <input type="checkbox" value="Indonesia" class="country-checkbox"> <span class="flag-icon">🇮🇩</span> Indonesia
+                </label>
+                <label class="country-option">
+                    <input type="checkbox" value="Ukraine" class="country-checkbox"> <span class="flag-icon">🇺🇦</span> Ukraine
+                </label>
+                <label class="country-option">
+                    <input type="checkbox" value="Nigeria" class="country-checkbox"> <span class="flag-icon">🇳🇬</span> Nigeria
+                </label>
+            </div>
+            <!-- /Колонка с выбором стран -->
+        </div> <!-- Закрывающий div для .container -->
     </div>
-
     <!-- Generated Passport (hidden by default) -->
     <div id="generated-section" class="section" style="display: none;">
         <div class="container">
@@ -74,7 +90,6 @@
             </div>
         </div>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>
 </body>
