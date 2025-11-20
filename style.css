@@ -26,7 +26,7 @@ body {
     box-sizing: border-box;
 }
 
-/* Стили для логотипа Rise */
+/* Стили для логотипа kash */
 .header-bar {
     width: 100%;
     display: flex;
@@ -34,7 +34,7 @@ body {
     margin-bottom: 10px; /* Отступ снизу до .passport-card */
 }
 
-.rise-logo {
+.kash-logo {
     width: 24px;
     height: auto;
 }
@@ -57,7 +57,7 @@ body {
     position: relative;
     width: 180px;
     height: 180px;
-    margin: 0 auto 20px;
+    margin: 0 auto 20px; /* Центрируем в редакторе */
     border-radius: 0;
     overflow: hidden;
     display: flex;
@@ -260,7 +260,7 @@ body {
     background: linear-gradient(135deg, #1e1e1e, #121212);
     border-radius: 0; /* Изменено: квадратные края */
     padding: 20px;
-    text-align: center;
+    text-align: center; /* Временно для контейнера */
     box-shadow: 0 8px 32px rgba(0,0,0,0.5);
     margin: 20px 0;
     position: relative;
@@ -270,24 +270,37 @@ body {
     margin: 0 auto; /* Центрируем внутри .container */
 }
 
-/* Обновляем стили для фона аватара в сгенерированном паспорте */
-.generated-passport .card-background {
-    /* Применяем те же стили, что и для основного .card-background */
+/* --- Стили для контейнера аватара и текста (в сгенерированном паспорте) --- */
+.generated-passport .avatar-and-text-container {
+    display: flex;
+    align-items: flex-start; /* Выравнивание по верхнему краю */
+    gap: 20px; /* Отступ между аватаром и текстом */
+    width: 100%;
+    height: 100%;
+    text-align: left; /* Выравнивание текста по левому краю */
+}
+
+/* --- Стили для обёртки аватара (в сгенерированном паспорте) --- */
+.generated-passport .avatar-wrapper {
+    width: 180px; /* Ширина аватара */
+    height: 180px; /* Высота аватара */
+    flex-shrink: 0; /* Не сжимать аватар */
     position: relative;
-    width: 180px;
-    height: 180px;
-    border-radius: 0;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto 20px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
+    /* Градиентный фон */
     background: linear-gradient(135deg, #555, #333);
+    /* Узор сетки */
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: 1;
 }
 
-.generated-passport .card-background::before {
+.generated-passport .avatar-wrapper::before {
     content: "";
     position: absolute;
     top: 0;
@@ -302,7 +315,7 @@ body {
     z-index: 2;
 }
 
-/* Обновляем стили для самого аватара в сгенерированном паспорте */
+/* --- Стили для самого аватара (в сгенерированном паспорте) --- */
 .generated-passport .avatar-img {
     width: 100%;
     height: 100%;
@@ -314,20 +327,26 @@ body {
     z-index: 3;
 }
 
+/* --- Стили для блока с текстом (имя, бейджи, флаги, описание) (в сгенерированном паспорте) --- */
+.generated-passport .text-content {
+    flex: 1; /* Занимает доступное пространство */
+    position: relative; /* Для позиционирования логотипа */
+}
+
 .generated-passport .display-username {
     font-size: 1.3em; /* Изменено: уменьшен размер текста */
     font-weight: bold;
-    margin: 10px 0;
+    margin: 0 0 10px 0; /* Отступ снизу */
     color: #ffffff;
     letter-spacing: 0.5px;
 }
 
 .generated-passport .badges-row {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Выравнивание бейджей по левому краю */
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: 15px;
+    margin-top: 5px; /* Меньше отступа сверху */
 }
 
 .generated-passport .badge {
@@ -338,17 +357,16 @@ body {
     font-size: 0.9em;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin: 5px;
+    margin: 0; /* Убираем внешние отступы бейджей */
     cursor: default;
 }
 
-/* --- Стили для ряда флагов стран в сгенерированном паспорте --- */
 .generated-passport .countries-row {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Выравнивание флагов по левому краю */
     flex-wrap: wrap;
-    gap: 8px; /* Отступ между флагами */
-    margin-top: 15px; /* Отступ сверху */
+    gap: 8px;
+    margin-top: 5px; /* Меньше отступа сверху */
 }
 
 /* --- Стили для контейнера одного флага страны в сгенерированном паспорте --- */
@@ -370,7 +388,7 @@ body {
     vertical-align: middle; /* Выровняем по центру строки */
 }
 
-/* --- Стили для названия страны рядом с флагом --- */
+/* --- Стили для названия страны рядом с флагом (в сгенерированном паспорте) --- */
 .generated-passport .country-name {
     font-size: 0.7em; /* Изменено: уменьшен размер текста */
     color: #cccccc; /* Цвет текста */
@@ -378,10 +396,20 @@ body {
 
 .generated-passport .activity-description {
     font-size: 0.8em; /* Изменено: уменьшен размер текста */
-    margin: 15px 0;
+    margin: 15px 0 0 0; /* Отступ только сверху */
     line-height: 1.5;
     color: #cccccc;
     font-style: italic;
+}
+
+/* --- Стили для логотипа проекта в сгенерированном паспорте --- */
+.generated-passport .project-logo {
+    position: absolute;
+    top: 0; /* Прижимаем к верхнему краю .text-content */
+    right: 0; /* Прижимаем к правому краю .text-content */
+    width: 40px; /* Ширина логотипа */
+    height: 40px; /* Высота логотипа */
+    z-index: 10; /* Убедимся, что логотип поверх других элементов */
 }
 
 /* --- Стили для кнопок действий --- */
@@ -394,12 +422,12 @@ body {
 }
 
 .action-btn {
-    padding: 5px 10px; /* Уменьшенный padding (примерно вдвое) */
+    padding: 8px 16px; /* Увеличенный padding */
     border: none;
     border-radius: 0; /* Квадратные края */
     cursor: pointer;
     font-weight: bold;
-    font-size: 0.8em; /* Уменьшенный размер шрифта (примерно вдвое) */
+    font-size: 0.8em; /* Увеличенный размер шрифта */
     transition: all 0.3s ease;
     /* margin-top: 10px; /* Отступ сверху для каждой кнопки (альтернатива) */
 }
@@ -459,127 +487,4 @@ body {
     text-align: center; /* Центрируем текст */
     margin-bottom: 20px; /* Добавляем отступ снизу (перед .generated-passport) */
     margin-top: 10px;    /* (Опционально) Добавляем отступ сверху */
-}
-
-
-
-/* --- Стили для контейнера аватара и текста --- */
-.generated-passport .avatar-and-text-container {
-    display: flex;
-    align-items: flex-start; /* Выравнивание по верхнему краю */
-    gap: 20px; /* Отступ между аватаром и текстом */
-}
-
-/* --- Стили для обёртки аватара --- */
-.generated-passport .avatar-wrapper {
-    width: 180px; /* Ширина аватара */
-    height: 180px; /* Высота аватара */
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* Градиентный фон */
-    background: linear-gradient(135deg, #555, #333);
-    /* Узор сетки */
-    background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
-    z-index: 1;
-}
-
-.generated-passport .avatar-wrapper::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* Повторяющийся узор сетки */
-    background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
-    z-index: 2;
-}
-
-/* --- Стили для самого аватара --- */
-.generated-passport .avatar-img {
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-    object-fit: cover;
-    border: 3px solid white;
-    box-shadow: 0 0 15px rgba(255,255,255,0.3);
-    position: relative;
-    z-index: 3;
-}
-
-/* --- Стили для блока с текстом (имя, бейджи, флаги, описание) --- */
-.generated-passport .text-content {
-    flex: 1; /* Занимает доступное пространство */
-    text-align: center;
-}
-
-.generated-passport .display-username {
-    font-size: 1.3em;
-    font-weight: bold;
-    margin: 10px 0;
-    color: #ffffff;
-    letter-spacing: 0.5px;
-}
-
-.generated-passport .badges-row {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 15px;
-}
-
-.generated-passport .badge {
-    display: inline-block;
-    padding: 8px 16px;
-    border-radius: 0;
-    font-weight: bold;
-    font-size: 0.9em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 5px;
-    cursor: default;
-}
-
-.generated-passport .countries-row {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 15px;
-}
-
-.generated-passport .generated-country-flag {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    border-radius: 0;
-}
-
-.generated-passport .generated-flag-icon {
-    width: 24px;
-    height: 24px;
-    vertical-align: middle;
-}
-
-.generated-passport .country-name {
-    font-size: 0.7em;
-    color: #cccccc;
-}
-
-.generated-passport .activity-description {
-    font-size: 0.8em;
-    margin: 15px 0;
-    line-height: 1.5;
-    color: #cccccc;
-    font-style: italic;
 }
