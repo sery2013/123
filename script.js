@@ -1,43 +1,47 @@
 // --- ВАЖНО: Замените 'YOUR_IMGBB_API_KEY' на ваш реальный API Key от ImgBB ---
 // Если вы не хотите использовать ImgBB, просто оставьте пустую строку.
-const IMGBB_API_KEY = 'ad61a98d4f9c86037cadf72d08171c20'; // <-- ЗАМЕНИТЕ НА ВАШ КЛЮЧ ИЛИ ОСТАВЬТЕ ПУСТЫМ
+const IMGBB_API_KEY = 'YOUR_IMGBB_API_KEY'; // <-- ЗАМЕНИТЕ НА ВАШ КЛЮЧ ИЛИ ОСТАВЬТЕ ПУСТЫМ
 
 // --- Маппинг бейджей на классы ---
 const badgeClassMap = {
-    "CONTENT CREATOR": "badge-primary",
-    "SHREDDED": "badge-purple",
-    "Rice": "badge-orange",
-    "Noob": "badge-pink",
-    "VIP": "badge-purple" // Пример: можно добавить другие
+    "kashed in": "badge-primary", // Обновите маппинг под ваши бейджи
+    "kashmigo": "badge-purple",
+    "kasher": "badge-orange",
+    "kashmaxer": "badge-pink",
+    "OG kasher": "badge-purple",
+    "kashmaster": "badge-primary",
+    "kashlord": "badge-purple",
+    "kashking": "badge-primary"
+    // Добавьте другие, если нужно
 };
 
-// --- Функция для получения выбранного аватара, логина и выбранных элементов ---
+// --- Функция для получения выбранного аватара и логина ---
 function getPassportData() {
     const avatarUrl = document.getElementById('avatar-preview').src;
     const username = document.getElementById('display-username').textContent;
     const selectedBadges = Array.from(document.querySelectorAll('.badge-checkbox:checked')).map(cb => cb.value);
-    // --- НОВОЕ: Получаем выбранные страны ---
+    // Добавим получение выбранных стран
     const selectedCountries = Array.from(document.querySelectorAll('.country-checkbox:checked')).map(cb => cb.value);
-    // --- /НОВОЕ ---
-    return { avatarUrl, username, selectedBadges, selectedCountries }; // Возвращаем и страны тоже
+    return { avatarUrl, username, selectedBadges, selectedCountries };
 }
 
 // --- Функция генерации HTML для паспорта ---
 function generatePassportHTML(avatarUrl, username, badges, countries) { // Принимаем и страны
-    console.log("Генерация паспорта. Data URL аватара:", avatarUrl);
+    console.log("Генерация паспорта. Data URL аватара:", avatarUrl); // Добавим лог
     let badgesHTML = '';
     badges.forEach(badgeText => {
-        const className = badgeClassMap[badgeText] || "badge-primary";
+        const className = badgeClassMap[badgeText] || "badge-primary"; // Если нет в мапе, используем primary
         badgesHTML += `<div class="badge ${className}">${badgeText}</div>`;
     });
 
-    // --- НОВОЕ: Генерируем HTML для флагов стран ---
+    // --- Генерируем HTML для флагов стран ---
     let countriesHTML = '';
     countries.forEach(countryName => {
-        // Найдём SVG-иконку для страны (нужно будет сопоставить имя со страной)
-        // Здесь нужно сопоставить имя страны (например, "Russia") с её SVG-кодом
+        // Найдём SVG-иконку для страны (нужно сопоставить имя со страной)
         // Лучше всего это сделать через объект-маппер.
         // Определим маппер для стран (SVG-иконки можно хранить как строки)
+        // ВАЖНО: Все SVG теперь имеют width="19", height="19", viewBox="0 0 19 19"
+        // Внутренние элементы масштабированы пропорционально от исходного размера 24x24
         const countryFlagMap = {
             "Russia": `<svg class="generated-flag-icon" width="19" height="19" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg"><rect width="19" height="6.33" fill="#ffffff"/><rect y="6.33" width="19" height="6.33" fill="#0039a6"/><rect y="12.66" width="19" height="6.33" fill="#d52b1e"/></svg>`,
             "United States": `<svg class="generated-flag-icon" width="19" height="19" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg"><rect width="19" height="19" fill="#b22234"/><rect width="19" height="10.56" y="4.22" fill="#ffffff"/><rect width="19" height="1.41" y="4.22" fill="#3c3b6e"/><rect width="19" height="1.41" y="7.04" fill="#ffffff"/><rect width="19" height="1.41" y="9.86" fill="#3c3b6e"/><rect width="19" height="1.41" y="12.68" fill="#ffffff"/><rect width="19" height="1.41" y="15.5" fill="#3c3b6e"/><rect width="7.12" height="5.64" fill="#3c3b6e"/></svg>`, // Исправленный флаг США
@@ -45,7 +49,7 @@ function generatePassportHTML(avatarUrl, username, badges, countries) { // Пр�
             "Indonesia": `<svg class="generated-flag-icon" width="19" height="19" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg"><rect width="19" height="9.5" fill="#ce1126"/><rect y="9.5" width="19" height="9.5" fill="#ffffff"/></svg>`,
             "Ukraine": `<svg class="generated-flag-icon" width="19" height="19" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg"><rect width="19" height="9.5" fill="#0057b7"/><rect y="9.5" width="19" height="9.5" fill="#ffd700"/></svg>`,
             "Nigeria": `<svg class="generated-flag-icon" width="19" height="19" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg"><rect width="6.33" height="19" fill="#008751"/><rect x="6.33" width="6.33" height="19" fill="#ffffff"/><rect x="12.66" width="6.33" height="19" fill="#008751"/></svg>`
-            // Добавьте другие страны по аналогии
+            // Добавьте другие страны по аналогии, убедившись, что width=19, height=19, viewBox="0 0 19 19", и внутренние элементы масштабированы
         };
 
         const flagSVG = countryFlagMap[countryName];
@@ -58,25 +62,37 @@ function generatePassportHTML(avatarUrl, username, badges, countries) { // Пр�
             countriesHTML += `<div class="generated-country-flag">[Флаг ${countryName}]</div>`;
         }
     });
-    // --- /НОВОЕ ---
+    // --- /Генерируем HTML для флагов стран ---
 
-    // Вставляем и badges, и countries в HTML
+    // --- Возвращаем НОВУЮ HTML-структуру ---
     return `
-        <div class="card-background">
-            <img src="${avatarUrl}" alt="Avatar Preview" class="avatar-img">
+        <!-- Новый контейнер для аватара и текста -->
+        <div class="avatar-and-text-container">
+            <!-- Левая часть: Аватар -->
+            <div class="avatar-wrapper">
+                <div class="card-background">
+                    <img src="${avatarUrl}" alt="Avatar Preview" class="avatar-img">
+                </div>
+            </div>
+            <!-- Правая часть: Текст и логотип -->
+            <div class="text-content">
+                <!-- Логотип проекта в правом верхнем углу текста -->
+                <img src="logo.png" alt="Project Logo" class="project-logo">
+                <div class="display-username">${username}</div>
+                <div class="badges-row">
+                    ${badgesHTML}
+                </div>
+                <div class="countries-row">
+                    ${countriesHTML}
+                </div>
+                <div class="activity-description">
+                    Achievement card on the Kash Bot server 🌀
+                </div>
+            </div>
         </div>
-        <div class="display-username">${username}</div>
-        <div class="badges-row">
-            ${badgesHTML}
-        </div>
-        <!-- Новый контейнер для флагов стран -->
-        <div class="countries-row">
-            ${countriesHTML}
-        </div>
-        <div class="activity-description">
-            Crafting pixels, pumping vibes, farming retweets 🌀
-        </div>
+        <!-- /avatar-and-text-container -->
     `;
+    // --- /Возвращаем НОВУЮ HTML-структуру ---
 }
 
 // --- Обработчик кнопки "Создать" ---
@@ -87,7 +103,7 @@ document.getElementById('generate-btn').addEventListener('click', function() {
         return;
     }
     // Передаём selectedCountries в generatePassportHTML
-    const generatedHTML = generatePassportHTML(avatarUrl, username, selectedBadges, selectedCountries);
+    const generatedHTML = generatePassportHTML(avatarUrl, username, selectedBadges, selectedCountries); // Передаём и страны
     const generatedPassportElement = document.getElementById('generated-passport');
     generatedPassportElement.innerHTML = generatedHTML;
     // Показать сгенерированную секцию, скрыть редактор
@@ -109,7 +125,7 @@ document.getElementById('download-btn').addEventListener('click', function() {
     const generatedAvatarSrc = generatedAvatarImg ? generatedAvatarImg.src : null;
     console.log("Скачивание. Data URL аватара в сгенерированном элементе:", generatedAvatarSrc); // Добавим лог
     // Проверяем, что src - это Data URL
-    if (generatedAvatarSrc && generatedAvatarSrc.startsWith('image')) {
+    if (generatedAvatarSrc && generatedAvatarSrc.startsWith('image')) { // Проверяем image
         console.log("html2canvas: src аватара является Data URL, всё ок.");
     } else {
         console.error("html2canvas: src аватара НЕ является Data URL! Это может быть проблемой.", generatedAvatarSrc);
