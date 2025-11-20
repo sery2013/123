@@ -1,5 +1,5 @@
 // --- ВАЖНО: Замените 'YOUR_IMGBB_API_KEY' на ваш реальный API Key от ImgBB ---
-const IMGBB_API_KEY = 'ad61a98d4f9c86037cadf72d08171c20'; // <-- ЗАМЕНИТЕ НА ВАШ КЛЮЧ ИЛИ ОСТАВЬТЕ ПУСТЫМ
+const IMGBB_API_KEY = 'YOUR_IMGBB_API_KEY'; // <-- ЗАМЕНИТЕ НА ВАШ КЛЮЧ ИЛИ ОСТАВЬТЕ ПУСТЫМ
 
 // --- Маппинг бейджей на классы ---
 const badgeClassMap = {
@@ -18,7 +18,7 @@ function getPassportData() {
     return { avatarUrl, username, selectedBadges };
 }
 
-// --- Функция генерации HTML для паспорта ---
+// --- Функция генерации HTML для паспорта (для отображения) ---
 function generatePassportHTML(avatarUrl, username, badges) {
     let badgesHTML = '';
     badges.forEach(badgeText => {
@@ -27,8 +27,8 @@ function generatePassportHTML(avatarUrl, username, badges) {
     });
 
     return `
-        <div class="card-background-simple"> <!-- Используем простой фон -->
-            <img src="${avatarUrl}" alt="Avatar Preview" class="avatar-img-simple"> <!-- Используем простой стиль -->
+        <div class="card-background">
+            <img src="${avatarUrl}" alt="Avatar Preview" class="avatar-img">
         </div>
         <div class="display-username">${username}</div>
         <div class="badges-row">
@@ -36,6 +36,31 @@ function generatePassportHTML(avatarUrl, username, badges) {
         </div>
         <div class="activity-description">
             Crafting pixels, pumping vibes, farming retweets 🌀
+        </div>
+    `;
+}
+
+// --- Функция генерации HTML для скачивания (простая версия) ---
+function generateDownloadHTML(avatarUrl, username, badges) {
+    let badgesHTML = '';
+    badges.forEach(badgeText => {
+        const className = badgeClassMap[badgeText] || "badge-primary";
+        // Для скачивания используем простые стили
+        badgesHTML += `<span style="background: linear-gradient(to right, #00C9FF, #92FE9D); color: #000; padding: 8px 16px; border-radius: 20px; font-weight: bold; margin: 5px; display: inline-block;">${badgeText}</span>`;
+    });
+
+    return `
+        <div style="width: 580px; min-height: 380px; background: #121212; padding: 20px; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,0.5); border-radius: 16px;">
+            <div style="width: 180px; height: 180px; margin: 0 auto 20px; background: linear-gradient(135deg, #555, #333); display: flex; justify-content: center; align-items: center; border-radius: 0; overflow: hidden;">
+                <img src="${avatarUrl}" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover; border: 3px solid white; box-shadow: 0 0 15px rgba(255,255,255,0.3);">
+            </div>
+            <div style="font-size: 1.5em; font-weight: bold; margin: 10px 0; color: #ffffff; letter-spacing: 0.5px;">${username}</div>
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 15px;">
+                ${badgesHTML}
+            </div>
+            <div style="font-size: 0.9em; margin: 15px 0; line-height: 1.5; color: #cccccc; font-style: italic;">
+                Crafting pixels, pumping vibes, farming retweets 🌀
+            </div>
         </div>
     `;
 }
@@ -66,61 +91,38 @@ document.getElementById('back-btn').addEventListener('click', function() {
 
 // --- Обработчик кнопки "Скачать как PNG" ---
 document.getElementById('download-btn').addEventListener('click', function() {
-    const generatedPassportElement = document.getElementById('generated-passport');
+    const { avatarUrl, username, selectedBadges } = getPassportData();
 
-    // Временно заменяем сложные стили на простые для html2canvas
-    const originalCardBackground = generatedPassportElement.querySelector('.card-background-simple');
-    const originalAvatarImg = generatedPassportElement.querySelector('.avatar-img-simple');
+    // Создаем временный элемент для html2canvas
+    const tempDiv = document.createElement('div');
+    tempDiv.style.position = 'absolute';
+    tempDiv.style.left = '-9999px';
+    tempDiv.style.top = '-9999px';
+    tempDiv.style.width = '580px';
+    tempDiv.style.height = '380px';
+    tempDiv.innerHTML = generateDownloadHTML(avatarUrl, username, selectedBadges);
 
-    if (originalCardBackground && originalAvatarImg) {
-        // Сохраняем оригинальные стили
-        const originalBackgroundStyle = originalCardBackground.style.cssText;
-        const originalAvatarStyle = originalAvatarImg.style.cssText;
+    document.body.appendChild(tempDiv);
 
-        // Применяем простые стили
-        originalCardBackground.style.cssText = `
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 20px;
-            background: #555; /* Простой серый фон */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 0;
-            overflow: hidden;
-        `;
+    // Генерируем canvas
+    html2canvas(tempDiv, {
+        backgroundColor: '#121212',
+        scale: 2,
+    }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'my-discord-passport.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
 
-        originalAvatarImg.style.cssText = `
-            width: 100%;
-            height: 100%;
-            border-radius: 0;
-            object-fit: cover;
-            border: 0; /* Без рамки */
-            box-shadow: none; /* Без тени */
-        `;
-
-        // Генерируем canvas
-        html2canvas(generatedPassportElement, {
-            backgroundColor: '#121212',
-            scale: 2,
-        }).then(canvas => {
-            const link = document.createElement('a');
-            link.download = 'my-discord-passport.png';
-            link.href = canvas.toDataURL('image/png');
-            link.click();
-
-            // Восстанавливаем оригинальные стили
-            originalCardBackground.style.cssText = originalBackgroundStyle;
-            originalAvatarImg.style.cssText = originalAvatarStyle;
-
-        }).catch(err => {
-            console.error("Ошибка при создании canvas:", err);
-
-            // Восстанавливаем стили даже в случае ошибки
-            originalCardBackground.style.cssText = originalBackgroundStyle;
-            originalAvatarImg.style.cssText = originalAvatarStyle;
-        });
-    }
+        // Удаляем временный элемент
+        document.body.removeChild(tempDiv);
+    }).catch(err => {
+        console.error("Ошибка при создании canvas:", err);
+        // Удаляем временный элемент даже в случае ошибки
+        if (tempDiv.parentNode) {
+            document.body.removeChild(tempDiv);
+        }
+    });
 });
 
 // --- Обработчик кнопки "Поделиться в Twitter" ---
