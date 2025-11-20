@@ -1,6 +1,6 @@
 // --- ВАЖНО: Замените 'YOUR_IMGBB_API_KEY' на ваш реальный API Key от ImgBB ---
 // Если вы не хотите использовать ImgBB, просто оставьте пустую строку.
-const IMGBB_API_KEY = 'YOUR_IMGBB_API_KEY'; // <-- ЗАМЕНИТЕ НА ВАШ КЛЮЧ ИЛИ ОСТАВЬТЕ ПУСТЫМ
+const IMGBB_API_KEY = '6126df32bf922494dc6458dbecfd25df'; // <-- ЗАМЕНИТЕ НА ВАШ КЛЮЧ ИЛИ ОСТАВЬТЕ ПУСТЫМ
 
 // --- Маппинг бейджей на классы ---
 const badgeClassMap = {
@@ -117,23 +117,50 @@ document.getElementById('back-btn').addEventListener('click', function() {
     document.getElementById('editor-section').style.display = 'block';
 });
 
-// --- Обработчик кнопки "Скачать как PNG" ---
-document.getElementById('download-btn').addEventListener('click', function() {
+// --- Обработчик кнопки "Скачать как PNG" (ОБНОВЛЁННЫЙ) ---
+document.getElementById('download-btn').addEventListener('click', async function() { // Добавлен async
     const generatedPassportElement = document.getElementById('generated-passport');
-    // Получаем Data URL из сгенерированного элемента (для уверенности)
     const generatedAvatarImg = generatedPassportElement.querySelector('.avatar-img');
-    const generatedAvatarSrc = generatedAvatarImg ? generatedAvatarImg.src : null;
-    console.log("Скачивание. Data URL аватара в сгенерированном элементе:", generatedAvatarSrc); // Добавим лог
-    // Проверяем, что src - это Data URL
-    if (generatedAvatarSrc && generatedAvatarSrc.startsWith('image')) { // Проверяем image
-        console.log("html2canvas: src аватара является Data URL, всё ок.");
-    } else {
-        console.error("html2canvas: src аватара НЕ является Data URL! Это может быть проблемой.", generatedAvatarSrc);
+
+    if (!generatedAvatarImg) {
+        console.error("html2canvas: Не найден элемент аватара (.avatar-img) в #generated-passport.");
+        return;
     }
+
+    // Проверяем, что src - это Data URL или локальный путь
+    const generatedAvatarSrc = generatedAvatarImg.src;
+    console.log("Скачивание. Data URL аватара в сгенерированном элементе:", generatedAvatarSrc);
+
+    if (generatedAvatarSrc.startsWith('data:image')) { // Проверяем Data URL
+        console.log("html2canvas: src аватара является Data URL, ожидаем его загрузку.");
+        // Создаём промис, который разрешится, когда изображение загрузится
+        const imageLoadPromise = new Promise((resolve, reject) => {
+            generatedAvatarImg.onload = resolve;
+            generatedAvatarImg.onerror = () => reject(new Error('Failed to load avatar image for canvas'));
+            // Если изображение уже загружено, onload не сработает. Проверим.
+            if (generatedAvatarImg.complete && generatedAvatarImg.naturalHeight !== 0) {
+                 // Уже загружено, разрешаем промис
+                 resolve();
+            }
+        });
+
+        try {
+            // Ждём загрузки изображения
+            await imageLoadPromise;
+            console.log("html2canvas: Изображение аватара загружено, запускаем html2canvas.");
+        } catch (error) {
+            console.error("html2canvas: Ошибка загрузки аватара:", error);
+            return; // Не продолжаем, если аватар не загрузился
+        }
+    } else {
+        console.warn("html2canvas: src аватара не является Data URL. Это может повлиять на отображение в PNG в зависимости от политики CORS.", generatedAvatarSrc);
+        // В этом случае мы полагаемся на html2canvas, но ошибка CORS может всё равно возникнуть.
+    }
+
+    // Теперь вызываем html2canvas, зная, что изображение загружено (если это Data URL)
     html2canvas(generatedPassportElement, {
         backgroundColor: '#121212', // Установить фон для холста
         scale: 2, // Повысить качество (по умолчанию 1)
-        // Попробуем отключить z-index в превью, если он мешает
         // logging: true, // Включить логгирование html2canvas (для отладки)
         // allowTaint: true, // Позволить "загрязнение" (может помочь с изображениями)
         // useCORS: true,   // Использовать CORS (не поможет с Data URL, но на всякий случай)
