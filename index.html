@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,32 +7,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Основной редактор -->
-    <div id="editor-section" class="section">
-        <div class="container">
-            <div class="header-bar">
-                <span class="username">ByHappyHearts</span>
-                <img src="assets/logo.svg" alt="Rise Logo" class="rise-logo">
-            </div>
-
-            <div class="passport-card">
-                <div class="card-background">
-                    <img id="avatar-preview" src="assets/default-avatar.png" alt="Avatar Preview" class="avatar-img">
+    <div class="container">
+        <div class="editor-layout">
+            <!-- Left Panel: Controls -->
+            <div class="left-panel">
+                <div class="header-bar">
+                    <span class="username">ByHappyHearts</span>
+                    <img src="assets/logo.svg" alt="Rise Logo" class="rise-logo">
                 </div>
 
-                <input type="file" id="avatar-upload" accept="image/*" style="display:none;">
-                <button class="upload-btn" onclick="document.getElementById('avatar-upload').click()">Загрузить Аватар</button>
-                <p id="upload-status" class="status"></p>
-
-                <div class="username-input-wrapper">
-                    <label for="username-input">Логин:</label>
-                    <input type="text" id="username-input" placeholder="Введите ваш Discord логин">
+                <div class="controls-section">
+                    <h3>Username:</h3>
+                    <div class="username-input-wrapper">
+                        <input type="text" id="username-input" placeholder="Enter your Discord username">
+                    </div>
+                    <div id="display-username" class="display-username">Your Username</div>
                 </div>
-                <div id="display-username" class="display-username">Ваш Логин</div>
 
-                <!-- Выбор бейджей -->
-                <div class="badges-selection">
-                    <h3>Выберите бейджи:</h3>
+                <div class="controls-section">
+                    <h3>Upload Avatar:</h3>
+                    <input type="file" id="avatar-upload" accept="image/*" style="display:none;">
+                    <button class="upload-btn" onclick="document.getElementById('avatar-upload').click()">Upload Avatar</button>
+                    <p id="upload-status" class="status"></p>
+                </div>
+
+                <div class="controls-section">
+                    <h3>Select Badges:</h3>
                     <label class="checkbox-label">
                         <input type="checkbox" value="CONTENT CREATOR" class="badge-checkbox"> CONTENT CREATOR
                     </label>
@@ -45,32 +45,98 @@
                     <label class="checkbox-label">
                         <input type="checkbox" value="Noob" class="badge-checkbox"> Noob
                     </label>
-                    <!-- Пример добавления нового бейджа -->
                     <label class="checkbox-label">
                         <input type="checkbox" value="VIP" class="badge-checkbox"> VIP
                     </label>
                 </div>
 
-                <div class="activity-description">
-                    Crafting pixels, pumping vibes, farming retweets 🌀
+                <div class="controls-section">
+                    <h3>Select Country:</h3>
+                    <div class="country-selector">
+                        <label class="country-option">
+                            <input type="radio" name="country" value="Russia" class="country-radio">
+                            <svg class="flag-svg" viewBox="0 0 5 3" xmlns="http://www.w3.org/2000/svg"><rect width="5" height="1" y="0" fill="#fff"/><rect width="5" height="1" y="1" fill="#0039a6"/><rect width="5" height="1" y="2" fill="#d52b1e"/></svg>
+                            Russia
+                        </label>
+                        <label class="country-option">
+                            <input type="radio" name="country" value="Germany" class="country-radio">
+                            <svg class="flag-svg" viewBox="0 0 5 3" xmlns="http://www.w3.org/2000/svg"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#dd0000"/><rect width="5" height="1" y="2" fill="#ffce00"/></svg>
+                            Germany
+                        </label>
+                        <label class="country-option">
+                            <input type="radio" name="country" value="USA" class="country-radio">
+                            <svg class="flag-svg" viewBox="0 0 19 10" xmlns="http://www.w3.org/2000/svg"><rect width="19" height="10" fill="#b22234"/><path d="M0,0h19v1H0z" fill="#fff"/><path d="M0,2h19v1H0z" fill="#fff"/><path d="M0,4h19v1H0z" fill="#fff"/><path d="M0,6h19v1H0z" fill="#fff"/><path d="M0,8h19v1H0z" fill="#fff"/><path d="M0,0h7v5H0z" fill="#3c3b6e"/><path d="M0,0l1,0l0,0l1,0l0,0l1,0l0,0l1,0l0,0l1,0l0,0l1,0l0,0l1,0l0,0l1,0l0,0z" fill="#fff"/></svg>
+                            USA
+                        </label>
+                        <label class="country-option">
+                            <input type="radio" name="country" value="Turkey" class="country-radio">
+                            <svg class="flag-svg" viewBox="0 0 5 3" xmlns="http://www.w3.org/2000/svg"><rect width="5" height="3" fill="#e30a17"/><path d="M2.5,1.5A0.75,0.75 0 1,0 2.5,0.75 A0.75,0.75 0 1,0 2.5,1.5 Z" fill="#fff"/><path d="M2.7,1.5A0.75,0.75 0 1,0 2.7,0.75 A0.75,0.75 0 1,0 2.7,1.5 Z" fill="#e30a17"/></svg>
+                            Turkey
+                        </label>
+                        <label class="country-option">
+                            <input type="radio" name="country" value="Indonesia" class="country-radio">
+                            <svg class="flag-svg" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="3" height="1" y="0" fill="#ce1126"/><rect width="3" height="1" y="1" fill="#fff"/></svg>
+                            Indonesia
+                        </label>
+                        <label class="country-option">
+                            <input type="radio" name="country" value="Ukraine" class="country-radio">
+                            <svg class="flag-svg" viewBox="0 0 5 3" xmlns="http://www.w3.org/2000/svg"><rect width="5" height="1.5" y="0" fill="#0057b7"/><rect width="5" height="1.5" y="1.5" fill="#ffd700"/></svg>
+                            Ukraine
+                        </label>
+                        <label class="country-option">
+                            <input type="radio" name="country" value="Nigeria" class="country-radio">
+                            <svg class="flag-svg" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" x="0" y="0" fill="#008751"/><rect width="1" height="2" x="1" y="0" fill="#fff"/><rect width="1" height="2" x="2" y="0" fill="#008751"/></svg>
+                            Nigeria
+                        </label>
+                        <label class="country-option">
+                            <input type="radio" name="country" value="China" class="country-radio">
+                            <svg class="flag-svg" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#de2910"/><path d="M5,5 L7,4 L6,6 L8,7 L5,7 Z" fill="#ffde00" transform="rotate(23.0769 5 5)"/><path d="M10,2 L11,3 L10,4 L11,5 L10,4 L9,5 L10,4 L9,3 Z" fill="#ffde00" transform="rotate(43.6364 10 2)"/><path d="M12,6 L13,7 L12,8 L13,9 L12,8 L11,9 L12,8 L11,7 Z" fill="#ffde00" transform="rotate(80 12 6)"/><path d="M12,10 L13,11 L12,12 L13,13 L12,12 L11,13 L12,12 L11,11 Z" fill="#ffde00" transform="rotate(-80 12 10)"/><path d="M10,14 L11,15 L10,16 L11,17 L10,16 L9,17 L10,16 L9,15 Z" fill="#ffde00" transform="rotate(-46.3636 10 14)"/></svg>
+                            China
+                        </label>
+                    </div>
                 </div>
 
-                <button id="generate-btn" class="generate-btn">Создать</button>
+                <button id="generate-btn" class="generate-btn">Generate Passport</button>
+            </div>
+
+            <!-- Right Panel: Preview -->
+            <div class="right-panel">
+                <div class="passport-preview">
+                    <div class="header-bar">
+                        <span class="username">ByHappyHearts</span>
+                        <img src="assets/logo.svg" alt="Rise Logo" class="rise-logo">
+                    </div>
+
+                    <div class="passport-card">
+                        <div class="card-background">
+                            <img id="preview-avatar" src="assets/default-avatar.png" alt="Avatar Preview" class="avatar-img">
+                        </div>
+                        <div id="preview-username" class="display-username">Your Username</div>
+                        <div id="preview-badges" class="badges-row"></div>
+                        <div id="preview-country" class="country-display">
+                            <svg class="flag-svg" id="preview-flag" viewBox="0 0 5 3" xmlns="http://www.w3.org/2000/svg"><rect width="5" height="1" y="0" fill="#fff"/><rect width="5" height="1" y="1" fill="#0039a6"/><rect width="5" height="1" y="2" fill="#d52b1e"/></svg>
+                            <span id="preview-country-name">Russia</span>
+                        </div>
+                        <div class="activity-description">
+                            Crafting pixels, pumping vibes, farming retweets 🌀
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Сгенерированный паспорт (скрыт по умолчанию) -->
+    <!-- Generated Passport Section (Hidden by default) -->
     <div id="generated-section" class="section" style="display: none;">
         <div class="container">
-            <h2>Ваш готовый паспорт:</h2>
+            <h2>Your Generated Passport:</h2>
             <div id="generated-passport" class="generated-passport">
-                <!-- Содержимое будет генерироваться скриптом -->
+                <!-- Content will be generated by script -->
             </div>
             <div class="generated-actions">
-                <button id="download-btn" class="action-btn download-btn">Скачать как PNG</button>
-                <button id="twitter-btn" class="action-btn twitter-btn">Поделиться в Twitter</button>
-                <button id="back-btn" class="action-btn back-btn">Назад к редактору</button>
+                <button id="download-btn" class="action-btn download-btn">Download PNG</button>
+                <button id="twitter-btn" class="action-btn twitter-btn">Share on Twitter</button>
+                <button id="back-btn" class="action-btn back-btn">Back to Editor</button>
             </div>
         </div>
     </div>
