@@ -11,23 +11,56 @@ const badgeClassMap = {
     "VIP": "badge-purple" // Пример: можно добавить другие
 };
 
-// --- Функция для получения выбранного аватара и логина ---
+// --- Функция для получения выбранного аватара, логина и выбранных элементов ---
 function getPassportData() {
     const avatarUrl = document.getElementById('avatar-preview').src;
     const username = document.getElementById('display-username').textContent;
     const selectedBadges = Array.from(document.querySelectorAll('.badge-checkbox:checked')).map(cb => cb.value);
-    // const selectedCountries = Array.from(document.querySelectorAll('.country-checkbox:checked')).map(cb => cb.value);
-    return { avatarUrl, username, selectedBadges };
+    // --- НОВОЕ: Получаем выбранные страны ---
+    const selectedCountries = Array.from(document.querySelectorAll('.country-checkbox:checked')).map(cb => cb.value);
+    // --- /НОВОЕ ---
+    return { avatarUrl, username, selectedBadges, selectedCountries }; // Возвращаем и страны тоже
 }
 
 // --- Функция генерации HTML для паспорта ---
-function generatePassportHTML(avatarUrl, username, badges) {
-    console.log("Генерация паспорта. Data URL аватара:", avatarUrl); // Добавим лог
+function generatePassportHTML(avatarUrl, username, badges, countries) { // Принимаем и страны
+    console.log("Генерация паспорта. Data URL аватара:", avatarUrl);
     let badgesHTML = '';
     badges.forEach(badgeText => {
-        const className = badgeClassMap[badgeText] || "badge-primary"; // Если нет в мапе, используем primary
+        const className = badgeClassMap[badgeText] || "badge-primary";
         badgesHTML += `<div class="badge ${className}">${badgeText}</div>`;
     });
+
+    // --- НОВОЕ: Генерируем HTML для флагов стран ---
+    let countriesHTML = '';
+    countries.forEach(countryName => {
+        // Найдём SVG-иконку для страны (нужно будет сопоставить имя со страной)
+        // Здесь нужно сопоставить имя страны (например, "Russia") с её SVG-кодом
+        // Лучше всего это сделать через объект-маппер.
+        // Определим маппер для стран (SVG-иконки можно хранить как строки)
+        const countryFlagMap = {
+            "Russia": `<svg class="generated-flag-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="8" fill="#ffffff"/><rect y="8" width="24" height="8" fill="#0039a6"/><rect y="16" width="24" height="8" fill="#d52b1e"/></svg>`,
+            "United States": `<svg class="generated-flag-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" fill="#012169"/><path fill="#ffffff" d="M0 0l12 12L24 0h-6V24H6V0H0z"/><path fill="#ffffff" d="M0 12l12-12v24L0 12z"/><path fill="#c8102e" d="M0 8l8 4v4L0 16V8z"/><path fill="#c8102e" d="M16 8v8l8-4V8h-8z"/><path fill="#c8102e" d="M8 0h8v8H8V0z"/><path fill="#c8102e" d="M8 16h8v8H8v-8z"/></svg>`,
+            "China": `<svg class="generated-flag-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" fill="#de2910"/><path fill="#ffde00" d="M2.25 4.5L3.75 6l-.75.75L2.25 6l-.75-.75L2.25 4.5zm1.5 0l.75 1.5h1.5l-.75-1.5h-1.5zm1.5 1.5l.75 1.5-.75.75-.75-.75.75-1.5z"/><path fill="#ffde00" d="M1.5 6.75l.75 1.5h1.5l-.75-1.5h-1.5zm1.5 1.5l.75 1.5-.75.75-.75-.75.75-1.5z"/></svg>`,
+            "Indonesia": `<svg class="generated-flag-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="12" fill="#ce1126"/><rect y="12" width="24" height="12" fill="#ffffff"/></svg>`,
+            "Ukraine": `<svg class="generated-flag-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="12" fill="#0057b7"/><rect y="12" width="24" height="12" fill="#ffd700"/></svg>`,
+            "Nigeria": `<svg class="generated-flag-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="8" height="24" fill="#008751"/><rect x="8" width="8" height="24" fill="#ffffff"/><rect x="16" width="8" height="24" fill="#008751"/></svg>`
+            // Добавьте другие страны по аналогии
+        };
+
+        const flagSVG = countryFlagMap[countryName];
+        if (flagSVG) {
+            // Создаём контейнер для флага и названия, аналогично бейджу
+            countriesHTML += `<div class="generated-country-flag">${flagSVG} <span class="country-name">${countryName}</span></div>`;
+        } else {
+            // На случай, если SVG для страны не найден, можно вывести просто название
+            console.warn(`SVG для флага страны "${countryName}" не найден.`);
+            countriesHTML += `<div class="generated-country-flag">[Флаг ${countryName}]</div>`;
+        }
+    });
+    // --- /НОВОЕ ---
+
+    // Вставляем и badges, и countries в HTML
     return `
         <div class="card-background">
             <img src="${avatarUrl}" alt="Avatar Preview" class="avatar-img">
@@ -35,6 +68,10 @@ function generatePassportHTML(avatarUrl, username, badges) {
         <div class="display-username">${username}</div>
         <div class="badges-row">
             ${badgesHTML}
+        </div>
+        <!-- Новый контейнер для флагов стран -->
+        <div class="countries-row">
+            ${countriesHTML}
         </div>
         <div class="activity-description">
             Crafting pixels, pumping vibes, farming retweets 🌀
@@ -44,12 +81,13 @@ function generatePassportHTML(avatarUrl, username, badges) {
 
 // --- Обработчик кнопки "Создать" ---
 document.getElementById('generate-btn').addEventListener('click', function() {
-    const { avatarUrl, username, selectedBadges } = getPassportData();
+    const { avatarUrl, username, selectedBadges, selectedCountries } = getPassportData(); // Получаем и страны
     if (selectedBadges.length === 0) {
         alert('Please select at least one badge.');
         return;
     }
-    const generatedHTML = generatePassportHTML(avatarUrl, username, selectedBadges);
+    // Передаём selectedCountries в generatePassportHTML
+    const generatedHTML = generatePassportHTML(avatarUrl, username, selectedBadges, selectedCountries);
     const generatedPassportElement = document.getElementById('generated-passport');
     generatedPassportElement.innerHTML = generatedHTML;
     // Показать сгенерированную секцию, скрыть редактор
