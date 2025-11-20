@@ -32,10 +32,35 @@
                     <p id="upload-status" class="status"></p>
                 </div>
 
-                <!-- Поменяли местами с Country -->
-                <div class="controls-section">
-                    <h3>Select Country:</h3>
-                    <div class="country-selector">
+                <!-- Блок Select Badges -->
+                <div class="badges-country-container">
+                    <div class="select-badges-box">
+                        <h3>Select Badges:</h3>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="CONTENT CREATOR" class="badge-checkbox"> CONTENT CREATOR
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="SHREDDED" class="badge-checkbox"> SHREDDED
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="Rice" class="badge-checkbox"> Rice
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="Noob" class="badge-checkbox"> Noob
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="VIP" class="badge-checkbox"> VIP
+                        </label>
+                    </div>
+
+                    <!-- Пустой прямоугольник (заполнитель) -->
+                    <div class="placeholder-box">
+                        <!-- Можно добавить изображение аватара сюда, если нужно -->
+                    </div>
+
+                    <!-- Блок Select Country -->
+                    <div class="select-country-box">
+                        <h3>Select Country:</h3>
                         <label class="country-option">
                             <input type="radio" name="country" value="Russia" class="country-radio">
                             <svg class="flag-svg" viewBox="0 0 5 3" xmlns="http://www.w3.org/2000/svg"><rect width="5" height="1" y="0" fill="#fff"/><rect width="5" height="1" y="1" fill="#0039a6"/><rect width="5" height="1" y="2" fill="#d52b1e"/></svg>
@@ -77,26 +102,6 @@
                             China
                         </label>
                     </div>
-                </div>
-
-                <!-- Теперь бейджи -->
-                <div class="controls-section">
-                    <h3>Select Badges:</h3>
-                    <label class="checkbox-label">
-                        <input type="checkbox" value="CONTENT CREATOR" class="badge-checkbox"> CONTENT CREATOR
-                    </label>
-                    <label class="checkbox-label">
-                        <input type="checkbox" value="SHREDDED" class="badge-checkbox"> SHREDDED
-                    </label>
-                    <label class="checkbox-label">
-                        <input type="checkbox" value="Rice" class="badge-checkbox"> Rice
-                    </label>
-                    <label class="checkbox-label">
-                        <input type="checkbox" value="Noob" class="badge-checkbox"> Noob
-                    </label>
-                    <label class="checkbox-label">
-                        <input type="checkbox" value="VIP" class="badge-checkbox"> VIP
-                    </label>
                 </div>
 
                 <button id="generate-btn" class="generate-btn">Generate Passport</button>
