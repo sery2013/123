@@ -24,6 +24,10 @@ body {
     margin: 0 auto; /* Центрируем контейнер внутри body */
     padding: 20px;
     box-sizing: border-box;
+    /* Сделаем контейнер flex, чтобы разместить .passport-card и #language-selector в ряд */
+    display: flex;
+    flex-direction: row; /* Элементы в ряд */
+    gap: 20px; /* Отступ между колонками */
 }
 
 .header-bar {
@@ -59,6 +63,7 @@ body {
     width: 580px; /* Фиксированная ширина */
     min-height: 380px; /* Минимальная высота */
     margin: 0 auto; /* Центрируем внутри .container */
+    flex: 1; /* Занимает доступное пространство */
 }
 
 /* Обновляем стили для фона аватара */
@@ -400,6 +405,52 @@ body {
 /* --- Для скрытия/показа секций --- */
 .section {
     width: 100%;
+}
+
+/* --- Стили для колонки выбора языков --- */
+#language-selector {
+    width: 200px; /* Фиксированная ширина для колонки */
+    background-color: #1a1a1a; /* Светлее основного фона */
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Отступ между опциями */
+    height: fit-content; /* Высота по содержимому */
+    align-self: flex-start; /* Выравнивание по верхнему краю основного контента */
+}
+
+#language-selector h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.1em;
+    text-align: center; /* Центрируем заголовок */
+    color: #ffffff; /* Цвет текста */
+}
+
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Отступ между иконкой и текстом */
+    padding: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.lang-option:hover {
+    background-color: #2a2a2a; /* Цвет при наведении */
+}
+
+.lang-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0; /* Не сжимать иконку */
+}
+
+.lang-option span {
+    font-size: 0.9em;
+    color: #ffffff; /* Цвет текста */
 }
 
 /* Удаляем старые стили центрирования, которые дублировались и были некорректны */
