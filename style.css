@@ -390,16 +390,18 @@ body {
     justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
+    margin-top: 10px; /* Отступ сверху для всего блока кнопок */
 }
 
 .action-btn {
-    padding: 10px 20px;
+    padding: 5px 10px; /* Уменьшенный padding (примерно вдвое) */
     border: none;
-    border-radius: 20px;
+    border-radius: 0; /* Квадратные края */
     cursor: pointer;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 0.5em; /* Уменьшенный размер шрифта (примерно вдвое) */
     transition: all 0.3s ease;
+    /* margin-top: 10px; /* Отступ сверху для каждой кнопки (альтернатива) */
 }
 
 .download-btn {
