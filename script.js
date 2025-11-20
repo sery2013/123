@@ -109,14 +109,14 @@ document.getElementById('generate-btn').addEventListener('click', function() {
     const generatedPassportElement = document.getElementById('generated-passport');
     generatedPassportElement.innerHTML = generatedHTML;
 
-    // Правильное переключение видимости
+    // Переключение видимости секций
     document.getElementById('editor-section').style.display = 'none';
     document.getElementById('generated-section').style.display = 'block';
 });
 
 // --- Обработчик кнопки "Back to Editor" ---
 document.getElementById('back-btn').addEventListener('click', function() {
-    // Правильное переключение видимости
+    // Переключение видимости секций
     document.getElementById('generated-section').style.display = 'none';
     document.getElementById('editor-section').style.display = 'block';
 });
@@ -224,6 +224,3 @@ document.addEventListener('DOMContentLoaded', function() {
     // Вызов updatePreview после восстановления данных
     updatePreview();
 });
-
-// Инициализация превью при загрузке страницы (уже вызывается выше в DOMContentLoaded)
-// document.addEventListener('DOMContentLoaded', updatePreview); // Убираем дублирование
