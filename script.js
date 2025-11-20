@@ -74,7 +74,8 @@ function generatePassportHTML(avatarUrl, username, badges, countries) { // Пр�
             ${countriesHTML}
         </div>
         <div class="activity-description">
-            Crafting pixels, pumping vibes, farming retweets 🌀
+            Achievement card on the Kash Bot server 🌀
+
         </div>
     `;
 }
