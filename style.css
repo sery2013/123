@@ -451,3 +451,10 @@ body {
 .section {
     width: 100%;
 }
+
+/* --- Стили для заголовка в секции генерации --- */
+#generated-section .container h2 {
+    text-align: center; /* Центрируем текст */
+    margin-bottom: 20px; /* Добавляем отступ снизу (перед .generated-passport) */
+    margin-top: 10px;    /* (Опционально) Добавляем отступ сверху */
+}
