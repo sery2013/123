@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Passport</title>
+    <!-- Подключаем файл стилей -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="passport-card">
+        <header>
+            <!-- Логотип проекта -->
+            <img src="assets/logo.svg" alt="Project Logo" class="logo">
+            <h1>Discord Passport</h1>
+        </header>
+
+        <div class="avatar-section">
+            <!-- Изображение аватара -->
+            <img id="avatar-preview" src="assets/default-avatar.png" alt="Avatar Preview" class="avatar-img">
+            <!-- Скрытый input для выбора файла -->
+            <input type="file" id="avatar-upload" accept="image/*" style="display:none;">
+            <!-- Кнопка для вызова input -->
+            <button onclick="document.getElementById('avatar-upload').click()">Загрузить Аватар</button>
+            <!-- Элемент для отображения статуса загрузки -->
+            <p id="upload-status" style="margin-top: 10px; font-size: 0.9em;"></p>
+        </div>
+
+        <div class="user-info-section">
+            <label for="username-input">Логин:</label>
+            <!-- Input для ввода логина -->
+            <input type="text" id="username-input" placeholder="Введите ваш Discord логин">
+            <!-- Элемент для отображения введенного логина -->
+            <div id="display-username">Ваш Логин</div>
+        </div>
+
+        <div class="activity-section">
+            <!-- Пример бейджика -->
+            <div class="badge">
+                <!-- Пример встроенной SVG-иконки -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 14L12 9L17 14H7Z" fill="#4CAF50"/>
+                </svg>
+                Рост активности
+            </div>
+        </div>
+
+    </div>
+    <!-- Подключаем файл скриптов -->
+    <script src="script.js"></script>
+</body>
+</html>

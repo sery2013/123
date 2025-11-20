@@ -1,0 +1,75 @@
+/* Основные стили для страницы */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Стили для карточки паспорта */
+.passport-card {
+    background-color: #ffffff;
+    border-radius: 8px; /* Как вы просили */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+}
+
+/* Стили для логотипа */
+.logo {
+    width: 64px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Стили для аватара */
+.avatar-section img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 10px 0;
+}
+
+/* Стили для поля ввода логина */
+.user-info-section input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+}
+
+/* Стили для отображения логина */
+#display-username {
+    font-weight: bold;
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Стили для секции активности */
+.activity-section {
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Стили для бейджика */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: #e0e0e0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin: 2px;
+    font-size: 0.9em;
+}
+
+.badge svg {
+    margin-right: 4px;
+}
+
+/* Стили для статуса загрузки */
+#upload-status.success { color: green; }
+#upload-status.error { color: red; }
