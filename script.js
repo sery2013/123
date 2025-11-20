@@ -219,3 +219,13 @@ document.getElementById('username-input').addEventListener('input', function(eve
 //         document.getElementById('display-username').textContent = savedUsername;
 //     }
 // });
+
+// --- НОВЫЙ: Обработчик выбора языка ---
+document.querySelectorAll('.lang-option').forEach(option => {
+    option.addEventListener('click', function() {
+        const lang = this.getAttribute('data-lang');
+        console.log(`Language selected: ${lang}`);
+        // Здесь можно добавить логику переключения языка интерфейса
+        // Пока просто выводим в консоль
+    });
+});
