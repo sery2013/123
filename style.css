@@ -324,7 +324,7 @@ body {
     /* Можно добавить, если основной контейнер - body */
     margin: 0;
     padding: 20px;
-    max-width: 600px; /* Ширина как у поста в Twitter */
+    max-width: 800px; /* Ширина как у поста в Twitter */
     margin-left: auto; /* Центрирование по горизонтали */
     margin-right: auto; /* Центрирование по горизонтали */
     box-sizing: border-box; /* Включаем padding и border в расчёт ширины */
@@ -333,7 +333,7 @@ body {
 /* Если у вас есть конкретный контейнер, например, div с id="main" или class="container" */
 /* Замените #main на реальный селектор вашего контейнера */
 #main {
-    max-width: 600px; /* Ширина как у поста в Twitter */
+    max-width: 800px; /* Ширина как у поста в Twitter */
     margin: 0 auto;   /* Центрирование по горизонтали */
     padding: 20px;    /* Отступы внутри контейнера */
     box-sizing: border-box; /* Включаем padding в расчёт ширины */
