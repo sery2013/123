@@ -1,100 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord Passport</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Main Editor -->
-    <div id="editor-section" class="section">
-        <div class="container">
-            <!-- Логотип Rise размещён вверху -->
-            <div class="header-bar">
-                <img src="assets/logo.svg" alt="Rise Logo" class="rise-logo">
-            </div>
-            <!-- Основной редактор паспорта -->
-            <div class="passport-card">
-                <!-- Wrapper for avatar with background -->
-                <div class="card-background">
-                    <img id="avatar-preview" src="default-avatar.png" alt="Avatar Preview" class="avatar-img">
-                </div>
-                <input type="file" id="avatar-upload" accept="image/*" style="display:none;">
-                <button class="upload-btn" onclick="document.getElementById('avatar-upload').click()">Upload Avatar</button>
-                <p id="upload-status" class="status"></p>
-                <div class="username-input-wrapper">
-                    <label for="username-input">Username:</label>
-                    <input type="text" id="username-input" placeholder="Enter your Discord username">
-                </div>
-                <div id="display-username" class="display-username">Your Username</div>
-                <!-- Container for Badges and Country columns -->
-                <div class="selection-columns">
-                    <!-- Badge Selection (Left Column) -->
-                    <div class="badges-selection">
-                        <h3>Select Badges:</h3>
-                        <label class="checkbox-label">
-                            <input type="checkbox" value="CONTENT CREATOR" class="badge-checkbox"> CONTENT CREATOR
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" value="SHREDDED" class="badge-checkbox"> SHREDDED
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" value="Rice" class="badge-checkbox"> Rice
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" value="Noob" class="badge-checkbox"> Noob
-                        </label>
-                        <!-- Example of adding a new badge -->
-                        <label class="checkbox-label">
-                            <input type="checkbox" value="VIP" class="badge-checkbox"> VIP
-                        </label>
-                    </div>
-                    <!-- Country Selection (Right Column) -->
-                    <div id="country-selector">
-                        <h3>Select Country:</h3>
-                        <label class="country-option">
-                            <input type="checkbox" value="Russia" class="country-checkbox"> <span class="flag-icon">🇷🇺</span> Russia
-                        </label>
-                        <label class="country-option">
-                            <input type="checkbox" value="United States" class="country-checkbox"> <span class="flag-icon">🇺🇸</span> United States
-                        </label>
-                        <label class="country-option">
-                            <input type="checkbox" value="China" class="country-checkbox"> <span class="flag-icon">🇨🇳</span> China
-                        </label>
-                        <label class="country-option">
-                            <input type="checkbox" value="Indonesia" class="country-checkbox"> <span class="flag-icon">🇮🇩</span> Indonesia
-                        </label>
-                        <label class="country-option">
-                            <input type="checkbox" value="Ukraine" class="country-checkbox"> <span class="flag-icon">🇺🇦</span> Ukraine
-                        </label>
-                        <label class="country-option">
-                            <input type="checkbox" value="Nigeria" class="country-checkbox"> <span class="flag-icon">🇳🇬</span> Nigeria
-                        </label>
-                    </div>
-                </div> <!-- /selection-columns -->
-                <div class="activity-description">
-                    Crafting pixels, pumping vibes, farming retweets 🌀
-                </div>
-                <button id="generate-btn" class="generate-btn">Create</button>
-            </div>
-        </div> <!-- /container -->
-    </div>
-    <!-- Generated Passport (hidden by default) -->
-    <div id="generated-section" class="section" style="display: none;">
-        <div class="container">
-            <h2>Your generated passport:</h2>
-            <div id="generated-passport" class="generated-passport">
-                <!-- Content will be generated by script -->
-            </div>
-            <div class="generated-actions">
-                <button id="download-btn" class="action-btn download-btn">Download as PNG</button>
-                <button id="twitter-btn" class="action-btn twitter-btn">Share on Twitter</button>
-                <button id="back-btn" class="action-btn back-btn">Back to Editor</button>
-            </div>
-        </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+<!-- Колонка с выбором стран -->
+<div id="country-selector">
+    <h3>Select Country:</h3>
+    <label class="country-option">
+        <input type="checkbox" value="Russia" class="country-checkbox"> 
+        <span class="flag-icon">
+            <!-- Флаг России -->
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect width="24" height="8" fill="#ffffff"/>
+                <rect y="8" width="24" height="8" fill="#0039a6"/>
+                <rect y="16" width="24" height="8" fill="#d52b1e"/>
+            </svg>
+        </span> Russia
+    </label>
+    <label class="country-option">
+        <input type="checkbox" value="United States" class="country-checkbox"> 
+        <span class="flag-icon">
+            <!-- Флаг США -->
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect width="24" height="24" fill="#012169"/>
+                <path fill="#ffffff" d="M0 0l12 12L24 0h-6V24H6V0H0z"/>
+                <path fill="#ffffff" d="M0 12l12-12v24L0 12z"/>
+                <path fill="#c8102e" d="M0 8l8 4v4L0 16V8z"/>
+                <path fill="#c8102e" d="M16 8v8l8-4V8h-8z"/>
+                <path fill="#c8102e" d="M8 0h8v8H8V0z"/>
+                <path fill="#c8102e" d="M8 16h8v8H8v-8z"/>
+            </svg>
+        </span> United States
+    </label>
+    <label class="country-option">
+        <input type="checkbox" value="China" class="country-checkbox"> 
+        <span class="flag-icon">
+            <!-- Флаг Китая -->
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect width="24" height="24" fill="#de2910"/>
+                <path fill="#ffde00" d="M2.25 4.5L3.75 6l-.75.75L2.25 6l-.75-.75L2.25 4.5zm1.5 0l.75 1.5h1.5l-.75-1.5h-1.5zm1.5 1.5l.75 1.5-.75.75-.75-.75.75-1.5zm1.5-1.5l.75 1.5h1.5l-.75-1.5h-1.5zm1.5 1.5l.75 1.5-.75.75-.75-.75.75-1.5z"/>
+            </svg>
+        </span> China
+    </label>
+    <label class="country-option">
+        <input type="checkbox" value="Indonesia" class="country-checkbox"> 
+        <span class="flag-icon">
+            <!-- Флаг Индонезии -->
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect width="24" height="12" fill="#ce1126"/>
+                <rect y="12" width="24" height="12" fill="#ffffff"/>
+            </svg>
+        </span> Indonesia
+    </label>
+    <label class="country-option">
+        <input type="checkbox" value="Ukraine" class="country-checkbox"> 
+        <span class="flag-icon">
+            <!-- Флаг Украины -->
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect width="24" height="12" fill="#0057b7"/>
+                <rect y="12" width="24" height="12" fill="#ffd700"/>
+            </svg>
+        </span> Ukraine
+    </label>
+    <label class="country-option">
+        <input type="checkbox" value="Nigeria" class="country-checkbox"> 
+        <span class="flag-icon">
+            <!-- Флаг Нигерии -->
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect width="8" height="24" fill="#008751"/>
+                <rect x="8" width="8" height="24" fill="#ffffff"/>
+                <rect x="16" width="8" height="24" fill="#008751"/>
+            </svg>
+        </span> Nigeria
+    </label>
+</div>
