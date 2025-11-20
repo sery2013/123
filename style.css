@@ -418,8 +418,7 @@ body {
 }
 */
 
-
-/* --- Простые стили для html2canvas --- */
+/* --- УДАЛЕНО: Простые стили для html2canvas (теперь не нужны) ---
 .card-background-simple {
     position: relative;
     width: 180px;
@@ -430,7 +429,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #555, #333); /* Можно оставить градиент, если он работает */
+    background: linear-gradient(135deg, #555, #333);
 }
 
 .card-background-simple::before {
@@ -457,3 +456,4 @@ body {
     position: relative;
     z-index: 3;
 }
+*/
