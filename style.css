@@ -262,7 +262,7 @@ body {
 
 /* --- Стили для сгенерированного паспорта --- */
 .generated-passport {
-    background: linear-gradient(135deg, #1e1e1e, #121212);
+    background: #FFA500; /* ИЗМЕНЕНО: Оранжевый фон */
     border-radius: 0; /* Изменено: квадратные края */
     padding: 20px;
     text-align: center;
@@ -273,6 +273,7 @@ body {
     width: 580px; /* Ширина как у поста в Twitter */
     min-height: 380px; /* Минимальная высота */
     margin: 0 auto; /* Центрируем внутри .container */
+    color: black; /* ИЗМЕНЕНО: Цвет текста на чёрный */
 }
 
 /* Обновляем стили для фона аватара в сгенерированном паспорте */
@@ -289,7 +290,7 @@ body {
     position: relative;
     overflow: hidden;
     z-index: 1;
-    background: linear-gradient(135deg, #555, #333);
+    background: linear-gradient(135deg, #FFD580, #FFB74D); /* ИЗМЕНЕНО: Светло-оранжевый градиент */
 }
 
 .generated-passport .card-background::before {
@@ -299,10 +300,10 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    /* Повторяющийся узор сетки */
+    /* Повторяющийся узор сетки (теперь тёмный, чтобы был виден на светлом фоне) */
     background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
     background-size: 20px 20px;
     z-index: 2;
 }
@@ -323,7 +324,7 @@ body {
     font-size: 1.3em; /* Изменено: уменьшен размер текста */
     font-weight: bold;
     margin: 10px 0;
-    color: #ffffff;
+    color: black; /* ИЗМЕНЕНО: Цвет текста */
     letter-spacing: 0.5px;
 }
 
@@ -345,6 +346,7 @@ body {
     letter-spacing: 1px;
     margin: 5px;
     cursor: default;
+    color: black; /* ИЗМЕНЕНО: Цвет текста бейджа */
 }
 
 /* --- Стили для ряда флагов стран в сгенерированном паспорте --- */
@@ -378,14 +380,14 @@ body {
 /* --- Стили для названия страны рядом с флагом --- */
 .generated-passport .country-name {
     font-size: 0.7em; /* Изменено: уменьшен размер текста */
-    color: #cccccc; /* Цвет текста */
+    color: black; /* ИЗМЕНЕНО: Цвет текста */
 }
 
 .generated-passport .activity-description {
     font-size: 0.8em; /* Текущий размер */
     margin: 15px 0;   /* Текущий отступ (сверху и снизу) */
     line-height: 1.5; /* Текущий межстрочный интервал */
-    color: #cccccc;   /* Текущий цвет */
+    color: black;   /* ИЗМЕНЕНО: Цвет текста */
     font-style: italic; /* Текущий стиль */
     /* --- Добавьте или измените это свойство --- */
     margin-top: 30px; /* Увеличьте значение, например до 30px */
@@ -469,6 +471,7 @@ body {
     text-align: center; /* Центрируем текст */
     margin-bottom: 20px; /* Добавляем отступ снизу (перед .generated-passport) */
     margin-top: 10px;    /* (Опционально) Добавляем отступ сверху */
+    color: white; /* ИЗМЕНЕНО: Цвет заголовка (если нужен контраст с фоном body) */
 }
 
 
