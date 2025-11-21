@@ -486,9 +486,6 @@ body {
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
-
-
-
 /* --- Стили для контейнера двух аватаров (в сгенерированной карточке) --- */
 .generated-passport .avatars-container {
     display: flex;
@@ -529,4 +526,20 @@ body {
 /* --- Стили для правой части (текст, бейджи, флаги, описание) (в сгенерированной карточке) --- */
 .generated-passport .text-content {
     display: flex;
-    flex-direction:
+    flex-direction: column;
+    justify-content: space-between; /* Распределяем пространство между элементами */
+    flex: 1; /* Растягиваем, чтобы занять всё оставшееся место */
+    padding: 20px;
+    position: relative; /* Для позиционирования логотипа */
+    min-height: 180px; /* Убедимся, что у .text-content есть минимальная высота */
+}
+
+/* --- Стили для логотипа проекта в сгенерированном паспорте --- */
+.generated-passport .project-logo {
+    position: absolute;
+    top: 10px; /* Отступ сверху */
+    right: 10px; /* Отступ справа */
+    width: 140px; /* Ширина логотипа */
+    height: 50px; /* Высота логотипа */
+    z-index: 10; /* Убедимся, что логотип поверх других элементов */
+}
