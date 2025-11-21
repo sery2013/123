@@ -559,3 +559,13 @@ body {
 #generated-section .container * {
     color: black !important;
 }
+
+
+
+.header-logo-box {
+    text-align: center; /* Выравнивание по левому краю */
+    background-color: #1a1a1a; /* Фон для колонки */
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
