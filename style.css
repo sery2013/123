@@ -378,7 +378,7 @@ body {
 
 .generated-passport .activity-description {
     font-size: 0.8em; /* Текущий размер */
-    margin: 15px 0;   /* Текущий отступ (сверху и снизу) */
+    margin: 30px 0;   /* Текущий отступ (сверху и снизу) */
     line-height: 1.5; /* Текущий межстрочный интервал */
     color: #cccccc;   /* Текущий цвет */
     font-style: italic; /* Текущий стиль */
