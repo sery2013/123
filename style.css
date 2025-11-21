@@ -6,31 +6,21 @@
 
 /* Центрируем и ограничиваем ширину всего содержимого, как пост в Twitter */
 body {
-    /* Комбинируем линейный градиент в оранжевых/коричневых/медных тонах с повторяющимся узором */
+    /* Убираем цвет фона и градиенты, оставляем только SVG-узоры */
     background: 
-        /* Повторяющийся узор диагональных линий (менее заметный, но добавляющий текстуру) */
-        repeating-linear-gradient(
-            45deg,
-            rgba(255, 255, 255, 0.03), /* Очень светлый оттенок */
-            rgba(255, 255, 255, 0.03) 1px, /* Ширина линии */
-            transparent 1px, /* Прозрачный промежуток */
-            transparent 5px /* Размер клетки */
-        ),
-        /* Линейный градиент от одного оранжевого оттенка к другому */
-        linear-gradient(to bottom right, #FF8C00, #CD853F, #A0522D); /* Оранжевый -> Перу -> Сиена */
-
+        /* Первый слой: Повторяющийся SVG-узор (звёзды) */
+        url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAgMGwtMi4xIDQuMy00LjkgMC43IDEuOCAzLjktMi4xIDQuMyA0LjkgMC43TDEwIDE4bDIuMS00LjMgNC45LTAuNy0xLjgtMy45TDExLjEgNGwtNC45LTAuN0wxMCAweiIgZmlsbD0iI2ZmZmZmZiIvPjwvc3ZnPg==') repeat,
+        /* Второй слой: Повторяющийся SVG-узор (круги) */
+        url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMCIgY3k9IjEwIiByPSI1IiBmaWxsPSIjZmZmZmZmIi8+PC9zdmc+') repeat;
+    
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white; /* Основной цвет текста */
+    color: white;
     display: flex;
     justify-content: center;
     align-items: flex-start; /* Изменили на flex-start, чтобы логотип был сверху */
     min-height: 100vh;
     padding: 20px;
     width: 100%;
-    /* Важно: указать, как работать с несколькими фонами */
-    background-repeat: repeat, no-repeat; /* Узор повторяется, градиент - нет */
-    background-size: 20px 20px, cover; /* Размер узора, затем размер градиента */
-    background-position: 0 0, center; /* Позиция узора и градиента */
 }
 
 /* Обновляем .container, чтобы он соответствовал ширине поста в Twitter */
