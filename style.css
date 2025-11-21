@@ -377,11 +377,16 @@ body {
 }
 
 .generated-passport .activity-description {
-    font-size: 0.8em; /* Изменено: уменьшен размер текста */
-    margin: 15px 0;
-    line-height: 1.5;
-    color: #cccccc;
-    font-style: italic;
+    font-size: 0.8em; /* Текущий размер */
+    margin: 15px 0;   /* Текущий отступ (сверху и снизу) */
+    line-height: 1.5; /* Текущий межстрочный интервал */
+    color: #cccccc;   /* Текущий цвет */
+    font-style: italic; /* Текущий стиль */
+    /* --- Добавьте или измените это свойство --- */
+    margin-top: 30px; /* Увеличьте значение, например до 30px */
+    /* Если вы хотите только отступ снизу, используйте margin-bottom */
+    /* margin-bottom: 20px; */
+    /* margin-top: 15px; */ /* Если нужно уменьшить отступ сверху */
 }
 
 /* --- Стили для кнопок действий --- */
