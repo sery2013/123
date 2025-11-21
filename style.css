@@ -257,7 +257,7 @@ body {
 
 /* --- Стили для сгенерированного паспорта --- */
 .generated-passport {
-    background: linear-gradient(135deg, #1e1e1e, #121212); /* ИЗМЕНЕНО: Градиентный фон, как в конструкторе */
+    background: linear-gradient(135deg, #1e1e1e, #121212);
     border-radius: 0; /* Изменено: квадратные края */
     padding: 20px;
     text-align: center;
@@ -268,6 +268,7 @@ body {
     width: 580px; /* Ширина как у поста в Twitter */
     min-height: 380px; /* Минимальная высота */
     margin: 0 auto; /* Центрируем внутри .container */
+    color: white; /* ИЗМЕНЕНО: Цвет текста на белый */
 }
 
 /* Обновляем стили для фона аватара в сгенерированном паспорте */
@@ -318,7 +319,7 @@ body {
     font-size: 1.3em; /* Изменено: уменьшен размер текста */
     font-weight: bold;
     margin: 10px 0;
-    color: #ffffff;
+    color: white; /* ИЗМЕНЕНО: Цвет текста на белый */
     letter-spacing: 0.5px;
 }
 
@@ -340,6 +341,7 @@ body {
     letter-spacing: 1px;
     margin: 5px;
     cursor: default;
+    color: white; /* ИЗМЕНЕНО: Цвет текста бейджа на белый */
 }
 
 /* --- Стили для ряда флагов стран в сгенерированном паспорте --- */
@@ -373,17 +375,16 @@ body {
 /* --- Стили для названия страны рядом с флагом --- */
 .generated-passport .country-name {
     font-size: 0.7em; /* Изменено: уменьшен размер текста */
-    color: #cccccc; /* Цвет текста */
+    color: white; /* ИЗМЕНЕНО: Цвет текста на белый */
 }
 
 .generated-passport .activity-description {
     font-size: 0.8em; /* Изменено: уменьшен размер текста */
     margin: 15px 0;
     line-height: 1.5;
-    color: #cccccc;
+    color: white; /* ИЗМЕНЕНО: Цвет текста на белый */
     font-style: italic;
 }
-
 /* --- Стили для кнопок действий --- */
 .generated-actions {
     display: flex;
