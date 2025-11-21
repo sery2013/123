@@ -6,20 +6,7 @@
 
 /* Центрируем и ограничиваем ширину всего содержимого, как пост в Twitter */
 body {
-    /* Убираем цвет фона */
-    /* background-color: #0d0d0d; */
-
-    /* Добавляем фоновое изображение */
-    background-image: url('https://i.imgur.com/rFTQqL5.png'); /* Путь к вашему изображению */
-    background-size: cover; /* Изображение заполняет весь экран */
-    background-position: center; /* Центрируем изображение */
-    background-repeat: no-repeat; /* Не повторяем изображение */
-
-    /* Опционально: если вы хотите добавить затемнение (полупрозрачный слой поверх изображения) */
-    /* Это можно сделать с помощью псевдоэлемента, но проще использовать rgba-цвет с прозрачностью */
-    /* Например, добавьте полупрозрачный чёрный слой поверх изображения: */
-    /* background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://i.imgur.com/rFTQqL5.png'); */
-
+    background-color: #0d0d0d;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     display: flex;
