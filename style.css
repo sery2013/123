@@ -6,9 +6,9 @@
 
 /* Центрируем и ограничиваем ширину всего содержимого, как пост в Twitter */
 body {
-    background-color: #0d0d0d;
+    background-color: #FF8C00; /* ИЗМЕНЕНО: Оранжевый фон */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
+    color: white; /* ИЗМЕНЕНО: Цвет текста на белый */
     display: flex;
     justify-content: center;
     align-items: flex-start; /* Изменили на flex-start, чтобы логотип был сверху */
@@ -24,6 +24,7 @@ body {
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
+    background-color: #FF8C00; /* ИЗМЕНЕНО: Оранжевый фон для контейнера */
 }
 
 /* Стили для логотипа Rise */
@@ -41,7 +42,7 @@ body {
 
 /* Основной редактор паспорта */
 .passport-card {
-    background: linear-gradient(135deg, #1e1e1e, #121212);
+    background: #FF8C00; /* ИЗМЕНЕНО: Оранжевый фон */
     border-radius: 16px;
     padding: 20px;
     text-align: center;
@@ -50,6 +51,7 @@ body {
     overflow: hidden;
     width: 100%; /* Занимает всю ширину .container */
     min-height: 380px; /* Минимальная высота */
+    color: black; /* ИЗМЕНЕНО: Цвет текста на чёрный */
 }
 
 /* Обновляем стили для фона аватара */
@@ -63,8 +65,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* --- ГРАДИЕНТНЫЙ ФОН --- */
-    background: linear-gradient(135deg, #555, #333);
+    /* --- ГРАДИЕНТНЫЙ ФОН (теперь светло-оранжевый) --- */
+    background: linear-gradient(135deg, #FFD580, #FFB74D); /* Светло-оранжевый градиент */
     /* Псевдоэлемент для создания узора сетки */
     z-index: 1;
 }
@@ -76,10 +78,10 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    /* Повторяющийся узор сетки */
+    /* Повторяющийся узор сетки (теперь тёмный, чтобы был виден на светлом фоне) */
     background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
     background-size: 20px 20px;
     z-index: 2;
 }
@@ -121,8 +123,8 @@ body {
     opacity: 0.8;
 }
 
-.status.success { color: #4CAF50; }
-.status.error { color: #FF5252; }
+.status.success { color: #2E7D32; } /* ИЗМЕНЕНО: Темно-зелёный для успеха */
+.status.error { color: #C62828; } /* ИЗМЕНЕНО: Темно-красный для ошибки */
 
 .username-input-wrapper {
     margin: 15px 0;
@@ -132,29 +134,30 @@ body {
     display: block;
     margin-bottom: 5px;
     font-size: 0.9em;
+    color: black; /* ИЗМЕНЕНО: Цвет текста */
 }
 
 .username-input-wrapper input {
     width: 100%;
     padding: 10px;
-    background: #2a2a2a;
-    border: 1px solid #444;
+    background: #FFD580; /* ИЗМЕНЕНО: Светлый фон для инпута */
+    border: 1px solid #FF8C00; /* ИЗМЕНЕНО: Контрастная граница */
     border-radius: 8px;
-    color: white;
+    color: black; /* ИЗМЕНЕНО: Цвет текста в инпуте */
     font-size: 1em;
 }
 
 .username-input-wrapper input:focus {
     outline: none;
-    border-color: #FF0080;
-    box-shadow: 0 0 5px rgba(255,0,128,0.3);
+    border-color: #000000; /* ИЗМЕНЕНО: Чёрная рамка при фокусе */
+    box-shadow: 0 0 5px rgba(0,0,0,0.3); /* Тень при фокусе */
 }
 
 .display-username {
     font-size: 1.5em;
     font-weight: bold;
     margin: 15px 0;
-    color: #ffffff;
+    color: black; /* ИЗМЕНЕНО: Цвет текста */
     letter-spacing: 0.5px;
 }
 
@@ -170,15 +173,17 @@ body {
 .badges-selection {
     flex: 1; /* Занимает доступное пространство */
     text-align: left; /* Выравнивание по левому краю */
-    background-color: #1a1a1a; /* Фон для колонки */
+    background-color: #FFD580; /* ИЗМЕНЕНО: Светло-оранжевый фон */
     padding: 15px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    color: black; /* ИЗМЕНЕНО: Цвет текста */
 }
 
 .badges-selection h3 {
     margin-bottom: 10px;
     text-align: left;
+    color: black; /* ИЗМЕНЕНО: Цвет текста */
 }
 
 .checkbox-label {
@@ -187,6 +192,7 @@ body {
     font-size: 0.9em;
     cursor: pointer;
     text-align: left;
+    color: black; /* ИЗМЕНЕНО: Цвет текста */
 }
 
 .checkbox-label input {
@@ -197,7 +203,7 @@ body {
 /* --- Стили для колонки выбора стран --- */
 #country-selector {
     width: 200px; /* Фиксированная ширина для колонки */
-    background-color: #1a1a1a; /* Светлее основного фона */
+    background-color: #FFD580; /* ИЗМЕНЕНО: Светло-оранжевый фон */
     border-radius: 12px;
     padding: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
@@ -206,12 +212,13 @@ body {
     gap: 10px; /* Отступ между опциями */
     height: fit-content; /* Высота по содержимому */
     align-self: flex-start; /* Выравнивание по верхнему краю основного контента */
+    color: black; /* ИЗМЕНЕНО: Цвет текста */
 }
 #country-selector h3 {
     margin: 0 0 10px 0;
     font-size: 1.1em;
     text-align: center; /* Центрируем заголовок */
-    color: #ffffff; /* Цвет текста */
+    color: black; /* ИЗМЕНЕНО: Цвет текста */
 }
 .country-option {
     display: block;
@@ -219,6 +226,7 @@ body {
     font-size: 0.9em;
     cursor: pointer;
     text-align: left; /* Выравнивание по левому краю */
+    color: black; /* ИЗМЕНЕНО: Цвет текста */
 }
 .country-option input {
     margin-right: 8px;
@@ -251,13 +259,13 @@ body {
     font-size: 0.9em;
     margin: 15px 0;
     line-height: 1.5;
-    color: #cccccc;
+    color: black; /* ИЗМЕНЕНО: Цвет текста */
     font-style: italic;
 }
 
 /* --- Стили для сгенерированного паспорта --- */
 .generated-passport {
-    background: linear-gradient(135deg, #1e1e1e, #121212);
+    background: #FF8C00; /* ИЗМЕНЕНО: Оранжевый фон */
     border-radius: 0; /* Изменено: квадратные края */
     padding: 20px;
     text-align: center;
@@ -268,6 +276,7 @@ body {
     width: 580px; /* Ширина как у поста в Twitter */
     min-height: 380px; /* Минимальная высота */
     margin: 0 auto; /* Центрируем внутри .container */
+    color: black; /* ИЗМЕНЕНО: Цвет текста на чёрный */
 }
 
 /* Обновляем стили для фона аватара в сгенерированном паспорте */
@@ -284,7 +293,7 @@ body {
     position: relative;
     overflow: hidden;
     z-index: 1;
-    background: linear-gradient(135deg, #555, #333);
+    background: linear-gradient(135deg, #FFD580, #FFB74D); /* ИЗМЕНЕНО: Светло-оранжевый градиент */
 }
 
 .generated-passport .card-background::before {
@@ -294,10 +303,10 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    /* Повторяющийся узор сетки */
+    /* Повторяющийся узор сетки (теперь тёмный, чтобы был виден на светлом фоне) */
     background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
     background-size: 20px 20px;
     z-index: 2;
 }
@@ -318,7 +327,7 @@ body {
     font-size: 1.3em; /* Изменено: уменьшен размер текста */
     font-weight: bold;
     margin: 10px 0;
-    color: #ffffff;
+    color: black; /* ИЗМЕНЕНО: Цвет текста */
     letter-spacing: 0.5px;
 }
 
@@ -373,14 +382,14 @@ body {
 /* --- Стили для названия страны рядом с флагом --- */
 .generated-passport .country-name {
     font-size: 0.7em; /* Изменено: уменьшен размер текста */
-    color: #cccccc; /* Цвет текста */
+    color: black; /* ИЗМЕНЕНО: Цвет текста */
 }
 
 .generated-passport .activity-description {
     font-size: 0.8em; /* Текущий размер */
     margin: 30px 0;   /* Текущий отступ (сверху и снизу) */
     line-height: 1.5; /* Текущий межстрочный интервал */
-    color: #cccccc;   /* Текущий цвет */
+    color: black;   /* ИЗМЕНЕНО: Цвет текста */
     font-style: italic; /* Текущий стиль */
     /* --- Добавьте или измените это свойство --- */
     margin-top: 30px; /* Увеличьте значение, например до 30px */
@@ -480,10 +489,11 @@ body {
 
 .header-logo-box {
     text-align: center; /* Выравнивание по левому краю */
-    background-color: #1a1a1a; /* Фон для колонки */
+    background-color: #FFD580; /* ИЗМЕНЕНО: Светло-оранжевый фон */
     padding: 15px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    color: black; /* ИЗМЕНЕНО: Цвет текста */
 }
 
 /* --- Стили для контейнера двух аватаров (в сгенерированной карточке) --- */
@@ -494,16 +504,21 @@ body {
     margin-bottom: 20px; /* Отступ снизу до текста */
 }
 
-/* --- Стили для самого аватара (в сгенерированной карточке) --- */
-.generated-passport .avatar-img {
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-    object-fit: cover; /* Изображение заполняет контейнер, обрезая лишнее */
-    border: 3px solid white;
-    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+/* --- Стили для обёртки аватара (одинаковые для обоих аватаров в сгенерированной карточке) --- */
+.generated-passport .avatar-wrapper {
+    width: 180px; /* Ширина аватара */
+    height: 180px; /* Высота аватара */
     position: relative;
-    z-index: 3;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Градиентный фон */
+    background: linear-gradient(135deg, #FFD580, #FFB74D); /* Светло-оранжевый градиент */
+    /* Узор сетки */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: 1;
 }
 
 /* --- Стили для самого аватара (в сгенерированной карточке) --- */
@@ -544,15 +559,16 @@ body {
 /* --- Стили для номера карточки (в сгенерированной карточке) --- */
 .generated-passport .card-number {
     font-size: 0.7em; /* Мелкий шрифт */
-    color: #aaaaaa; /* Серый цвет */
+    color: #000000; /* ИЗМЕНЕНО: Чёрный цвет текста */
     margin-bottom: 5px; /* Отступ снизу */
     text-align: center; /* Центрирование */
     font-weight: bold; /* Жирный шрифт (по желанию) */
 
     /* --- Добавьте эти строки, чтобы создать рамку --- */
-    border: 1px solid #aaaaaa; /* Сплошная серая рамка толщиной 1px */
+    border: 1px solid #000000; /* ИЗМЕНЕНО: Сплошная чёрная рамка толщиной 1px */
     border-radius: 4px; /* Скруглённые углы рамки (по желанию, можно убрать) */
     padding: 2px 6px; /* Внутренние отступы (чуть от текста до рамки) */
     display: inline-block; /* Чтобы рамка обтекала текст, а не занимала всю ширину */
+    background-color: #FF8C00; /* ИЗМЕНЕНО: Оранжевый фон для контекста */
     /* --- /Добавьте эти строки --- */
 }
