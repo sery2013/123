@@ -164,7 +164,7 @@ document.getElementById('download-btn').addEventListener('click', async function
 
     // Теперь вызываем html2canvas, зная, что изображение загружено (если это Data URL)
     html2canvas(generatedPassportElement, {
-        backgroundColor: '#121212', // Установить фон для холста
+        backgroundColor: '#121212', // Установить фон для холста (ваш фоновый цвет)
         scale: 2, // Повысить качество (по умолчанию 1)
         allowTaint: true, // Позволить "загрязнение" (может помочь с изображениями)
         useCORS: true,   // Использовать CORS (не поможет с Data URL, но на всякий случай)
