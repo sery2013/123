@@ -377,12 +377,21 @@ body {
 }
 
 .generated-passport .activity-description {
-    font-size: 0.8em; /* Текущий размер */
-    margin: 15px 0;   /* Текущий отступ (сверху и снизу) */
-    line-height: 1.5; /* Текущий межстрочный интервал */
-    color: #cccccc;   /* Текущий цвет */
-    font-style: italic; /* Текущий стиль */
-    margin-top: auto; /* Прижимаем к нижнему краю .text-content */
+    font-size: 0.8em; /* Изменено: уменьшен размер текста */
+    margin: 15px 0;
+    line-height: 1.5;
+    color: #cccccc;
+    font-style: italic;
+}
+
+/* --- Стили для логотипа проекта в сгенерированном паспорте --- */
+.generated-passport .project-logo {
+    position: absolute;
+    top: 10px; /* Отступ сверху */
+    right: 10px; /* Отступ справа */
+    width: 140px; /* Ширина логотипа */
+    height: 50px; /* Высота логотипа */
+    z-index: 10; /* Убедимся, что логотип поверх других элементов */
 }
 
 /* --- Стили для кнопок действий --- */
